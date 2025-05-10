@@ -1,4 +1,6 @@
 import SwiftUI
+import SwiftUIFlowLayout
+
 struct OnboardingScreen: View {
     @State private var items: [Onboarding_Data] = [
         Onboarding_Data(title: "Exercise"),
@@ -9,10 +11,6 @@ struct OnboardingScreen: View {
         Onboarding_Data(title: "Journal"),
         Onboarding_Data(title: "Stretch for 15 minutes"),
         Onboarding_Data(title: "Review goals before"),
-    ]
-
-    let columns = [
-        GridItem(.adaptive(minimum: 10), spacing: 12) // just let chips self-size
     ]
 
     var body: some View {
@@ -33,17 +31,20 @@ struct OnboardingScreen: View {
                 Spacer()
                 Spacer()
 
-                LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(items.indices, id: \.self) { index in
-                        ob_table_view(item: items[index])
-                            .onTapGesture {
-                                withAnimation {
-                                    for i in items.indices {
-                                        items[i].isSelected = (i == index) ? !items[i].isSelected : false
-                                    }
+                FlowLayout(
+                    mode: .vstack,
+                    items: items,
+                    itemSpacing: 3
+                ) { index in
+                    ob_table_view(item: index)
+                        .onTapGesture {
+                            withAnimation {
+                                for i in items.indices {
+                                    //items[i].isSelected = (i == index) ? !items[i].isSelected : false
+
                                 }
                             }
-                    }
+                        }
                 }
                 .padding()
 
