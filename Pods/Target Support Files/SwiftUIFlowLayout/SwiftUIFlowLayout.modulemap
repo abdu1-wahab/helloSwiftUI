@@ -1,0 +1,6 @@
+framework module SwiftUIFlowLayout {
+  umbrella header "SwiftUIFlowLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}
