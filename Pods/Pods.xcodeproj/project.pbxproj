@@ -7,117 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C2769ECFE7286AFF91F92A69F560AF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
-		29FF432FBAD23BAA02FB2D997C05BEAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
-		3B9FBF7D440CA5F19BA9C475BB51280B /* SwiftUIFlowLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CEC84CBB69D6E0731D13622A97237703 /* SwiftUIFlowLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		724142BA4CF68DC31A05E128DA045FB9 /* SwiftUIFlowLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C06ED4803027E9F91D3F242911B8DC9 /* SwiftUIFlowLayout-dummy.m */; };
-		941DF4A3F47FEAAFB14D439588C42A52 /* Pods-helloSwiftUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 412FF57B9AEAD0B955A960CF5A952D92 /* Pods-helloSwiftUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF12CF9B1B1B6CF8F6DBE99D4124F597 /* Pods-helloSwiftUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B6FFC73A5847284C15C1F69D891754D /* Pods-helloSwiftUI-dummy.m */; };
-		C52926BCE16A7CDEE0180E4E26A6DC9B /* SwiftUIFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4D9D9E824CCB7565962791D2E8A067 /* SwiftUIFlowLayout.swift */; };
+		A7E504E3CC8469BCC5D2716DFA0D1D55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
+		C48C846F9164241AAE061E4C9F8C20F1 /* Pods-helloSwiftUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDBA9D1F5B644ADC110465F7F525BD0 /* Pods-helloSwiftUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2D1A107D9189BCBA35F5A18A406F136 /* Pods-helloSwiftUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F699A7FBA10EB9ED4935B6FC76DAEEE9 /* Pods-helloSwiftUI-dummy.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3C5F158C87495ED1BA8FB82329C813B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B9AC56EBB52552CDA2EB1AC5FD0B3B2A;
-			remoteInfo = SwiftUIFlowLayout;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		0D6EA6034737B7AD1D7EE073EF6382AD /* SwiftUIFlowLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftUIFlowLayout-prefix.pch"; sourceTree = "<group>"; };
-		12160D11B454215F3AD521A0F464F7CE /* Pods-helloSwiftUI-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-helloSwiftUI-frameworks.sh"; sourceTree = "<group>"; };
-		273B89831C369F8D6A0A94F7D144FD3B /* SwiftUIFlowLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftUIFlowLayout.debug.xcconfig; sourceTree = "<group>"; };
+		12A45886925DB546884F034D1D918E33 /* Pods-helloSwiftUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-helloSwiftUI.modulemap"; sourceTree = "<group>"; };
+		23BF0E0703637A49676B3C8976ECFF4E /* Pods-helloSwiftUI-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-helloSwiftUI-acknowledgements.markdown"; sourceTree = "<group>"; };
+		340878E8674B46DCEAE334FE78222828 /* Pods-helloSwiftUI-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-helloSwiftUI-acknowledgements.plist"; sourceTree = "<group>"; };
 		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3FA57B19313F78073F0F2FF872B5D80F /* SwiftUIFlowLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftUIFlowLayout-Info.plist"; sourceTree = "<group>"; };
-		412FF57B9AEAD0B955A960CF5A952D92 /* Pods-helloSwiftUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-helloSwiftUI-umbrella.h"; sourceTree = "<group>"; };
-		418B639D92684AB705EE9ED574FA0824 /* SwiftUIFlowLayout */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftUIFlowLayout; path = SwiftUIFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B6FFC73A5847284C15C1F69D891754D /* Pods-helloSwiftUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-helloSwiftUI-dummy.m"; sourceTree = "<group>"; };
-		5C06ED4803027E9F91D3F242911B8DC9 /* SwiftUIFlowLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftUIFlowLayout-dummy.m"; sourceTree = "<group>"; };
-		6DCD51F79E6570EF30AF17301306918A /* Pods-helloSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-helloSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
-		6DFC4189763A6FEC4ECCCA336EEC8475 /* SwiftUIFlowLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftUIFlowLayout.modulemap; sourceTree = "<group>"; };
-		700086DC58DBC23F664B7FC8305BB271 /* Pods-helloSwiftUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-helloSwiftUI-Info.plist"; sourceTree = "<group>"; };
-		85EF9EB1C18528C98F5E0C407564CC49 /* SwiftUIFlowLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftUIFlowLayout.release.xcconfig; sourceTree = "<group>"; };
-		991E4C40B41E823A12A0317A2ECAF303 /* Pods-helloSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-helloSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		5B80753327C306C92254E4E2E8CCF501 /* Pods-helloSwiftUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-helloSwiftUI-Info.plist"; sourceTree = "<group>"; };
+		6B618D3B8186876000D360766EE4D873 /* Pods-helloSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-helloSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		8163BDF0FD4F558F3854FE082D9F0E44 /* Pods-helloSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-helloSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C48B37CD6F420E24FE3AC4CC93F7E15A /* Pods-helloSwiftUI */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-helloSwiftUI"; path = Pods_helloSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEC84CBB69D6E0731D13622A97237703 /* SwiftUIFlowLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftUIFlowLayout-umbrella.h"; sourceTree = "<group>"; };
-		EAC1A6A2DE9152B571DD341D03718930 /* Pods-helloSwiftUI-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-helloSwiftUI-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EF4D9D9E824CCB7565962791D2E8A067 /* SwiftUIFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftUIFlowLayout.swift; path = Sources/SwiftUIFlowLayout/SwiftUIFlowLayout.swift; sourceTree = "<group>"; };
-		F2FB8FF872E0BC4AC0039207497245D2 /* Pods-helloSwiftUI-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-helloSwiftUI-acknowledgements.plist"; sourceTree = "<group>"; };
-		FE079698DF80752760D6EA5F567B317C /* Pods-helloSwiftUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-helloSwiftUI.modulemap"; sourceTree = "<group>"; };
+		F699A7FBA10EB9ED4935B6FC76DAEEE9 /* Pods-helloSwiftUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-helloSwiftUI-dummy.m"; sourceTree = "<group>"; };
+		FCDBA9D1F5B644ADC110465F7F525BD0 /* Pods-helloSwiftUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-helloSwiftUI-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		33EA159B7C176C2E6C373E9D9BBFFF77 /* Frameworks */ = {
+		DBE107E39E7014733FCE3FA68D6E8F87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C2769ECFE7286AFF91F92A69F560AF7 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E90B52748B2F0954AC2530D4C55CEA78 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29FF432FBAD23BAA02FB2D997C05BEAD /* Foundation.framework in Frameworks */,
+				A7E504E3CC8469BCC5D2716DFA0D1D55 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0235A13BA2C5E284048088E669B1C741 /* SwiftUIFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				EF4D9D9E824CCB7565962791D2E8A067 /* SwiftUIFlowLayout.swift */,
-				2D3D4B4F4E5787E0B89F66EA6B57569A /* Support Files */,
-			);
-			name = SwiftUIFlowLayout;
-			path = SwiftUIFlowLayout;
-			sourceTree = "<group>";
-		};
-		0C77705184A9394EB8FD5D4E709FB684 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				EC9F3D3E21CB0AEB5AB8DDE5BD36109B /* Pods-helloSwiftUI */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		2D3D4B4F4E5787E0B89F66EA6B57569A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6DFC4189763A6FEC4ECCCA336EEC8475 /* SwiftUIFlowLayout.modulemap */,
-				5C06ED4803027E9F91D3F242911B8DC9 /* SwiftUIFlowLayout-dummy.m */,
-				3FA57B19313F78073F0F2FF872B5D80F /* SwiftUIFlowLayout-Info.plist */,
-				0D6EA6034737B7AD1D7EE073EF6382AD /* SwiftUIFlowLayout-prefix.pch */,
-				CEC84CBB69D6E0731D13622A97237703 /* SwiftUIFlowLayout-umbrella.h */,
-				273B89831C369F8D6A0A94F7D144FD3B /* SwiftUIFlowLayout.debug.xcconfig */,
-				85EF9EB1C18528C98F5E0C407564CC49 /* SwiftUIFlowLayout.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftUIFlowLayout";
-			sourceTree = "<group>";
-		};
-		3ACEC3ABA9ED53C6932F35E17A7CD5A4 /* Products */ = {
+		25A3BC0E5925CC73F99776E40BAFF57B /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				C48B37CD6F420E24FE3AC4CC93F7E15A /* Pods-helloSwiftUI */,
-				418B639D92684AB705EE9ED574FA0824 /* SwiftUIFlowLayout */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45D5B14C6F50324990C956C7B73D96FA /* Pods */ = {
+		7551507E7AE536066D13E811F4B7BF5E /* Pods-helloSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				0235A13BA2C5E284048088E669B1C741 /* SwiftUIFlowLayout */,
+				12A45886925DB546884F034D1D918E33 /* Pods-helloSwiftUI.modulemap */,
+				23BF0E0703637A49676B3C8976ECFF4E /* Pods-helloSwiftUI-acknowledgements.markdown */,
+				340878E8674B46DCEAE334FE78222828 /* Pods-helloSwiftUI-acknowledgements.plist */,
+				F699A7FBA10EB9ED4935B6FC76DAEEE9 /* Pods-helloSwiftUI-dummy.m */,
+				5B80753327C306C92254E4E2E8CCF501 /* Pods-helloSwiftUI-Info.plist */,
+				FCDBA9D1F5B644ADC110465F7F525BD0 /* Pods-helloSwiftUI-umbrella.h */,
+				8163BDF0FD4F558F3854FE082D9F0E44 /* Pods-helloSwiftUI.debug.xcconfig */,
+				6B618D3B8186876000D360766EE4D873 /* Pods-helloSwiftUI.release.xcconfig */,
 			);
-			name = Pods;
+			name = "Pods-helloSwiftUI";
+			path = "Target Support Files/Pods-helloSwiftUI";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -125,9 +67,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				45D5B14C6F50324990C956C7B73D96FA /* Pods */,
-				3ACEC3ABA9ED53C6932F35E17A7CD5A4 /* Products */,
-				0C77705184A9394EB8FD5D4E709FB684 /* Targets Support Files */,
+				25A3BC0E5925CC73F99776E40BAFF57B /* Products */,
+				E8060DB6B8B025B9BB3D99B4C6A85348 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,39 +88,22 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		EC9F3D3E21CB0AEB5AB8DDE5BD36109B /* Pods-helloSwiftUI */ = {
+		E8060DB6B8B025B9BB3D99B4C6A85348 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FE079698DF80752760D6EA5F567B317C /* Pods-helloSwiftUI.modulemap */,
-				EAC1A6A2DE9152B571DD341D03718930 /* Pods-helloSwiftUI-acknowledgements.markdown */,
-				F2FB8FF872E0BC4AC0039207497245D2 /* Pods-helloSwiftUI-acknowledgements.plist */,
-				4B6FFC73A5847284C15C1F69D891754D /* Pods-helloSwiftUI-dummy.m */,
-				12160D11B454215F3AD521A0F464F7CE /* Pods-helloSwiftUI-frameworks.sh */,
-				700086DC58DBC23F664B7FC8305BB271 /* Pods-helloSwiftUI-Info.plist */,
-				412FF57B9AEAD0B955A960CF5A952D92 /* Pods-helloSwiftUI-umbrella.h */,
-				991E4C40B41E823A12A0317A2ECAF303 /* Pods-helloSwiftUI.debug.xcconfig */,
-				6DCD51F79E6570EF30AF17301306918A /* Pods-helloSwiftUI.release.xcconfig */,
+				7551507E7AE536066D13E811F4B7BF5E /* Pods-helloSwiftUI */,
 			);
-			name = "Pods-helloSwiftUI";
-			path = "Target Support Files/Pods-helloSwiftUI";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		160EA2348C813C9D0163A8D30CE243BA /* Headers */ = {
+		8886FB8F1B87265CF76AB52C5DD2EDBB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				941DF4A3F47FEAAFB14D439588C42A52 /* Pods-helloSwiftUI-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		502654330CA80D7490CF3C51D5038625 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B9FBF7D440CA5F19BA9C475BB51280B /* SwiftUIFlowLayout-umbrella.h in Headers */,
+				C48C846F9164241AAE061E4C9F8C20F1 /* Pods-helloSwiftUI-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,39 +112,20 @@
 /* Begin PBXNativeTarget section */
 		470ABE952BDE79A6C6797F0876FC8155 /* Pods-helloSwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DC2C7C45F3F3FD8751DFDEFE817466E /* Build configuration list for PBXNativeTarget "Pods-helloSwiftUI" */;
+			buildConfigurationList = D1C33325821E791723A61F4E4078B998 /* Build configuration list for PBXNativeTarget "Pods-helloSwiftUI" */;
 			buildPhases = (
-				160EA2348C813C9D0163A8D30CE243BA /* Headers */,
-				F34CB9143EDD3806EB9E6885A67CF80E /* Sources */,
-				33EA159B7C176C2E6C373E9D9BBFFF77 /* Frameworks */,
-				AC6364743CB10A08996706CD77FFCDE0 /* Resources */,
+				8886FB8F1B87265CF76AB52C5DD2EDBB /* Headers */,
+				458247C40D87A3D3301E6A166636E37F /* Sources */,
+				DBE107E39E7014733FCE3FA68D6E8F87 /* Frameworks */,
+				585C90C8AA7A9F3D9B435CCF1399267E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				249F46CB3CB6860C47AF32585793C07A /* PBXTargetDependency */,
 			);
 			name = "Pods-helloSwiftUI";
 			productName = Pods_helloSwiftUI;
 			productReference = C48B37CD6F420E24FE3AC4CC93F7E15A /* Pods-helloSwiftUI */;
-			productType = "com.apple.product-type.framework";
-		};
-		B9AC56EBB52552CDA2EB1AC5FD0B3B2A /* SwiftUIFlowLayout */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7F6DDE6CAB023580DB476CFB06CF9203 /* Build configuration list for PBXNativeTarget "SwiftUIFlowLayout" */;
-			buildPhases = (
-				502654330CA80D7490CF3C51D5038625 /* Headers */,
-				2A7738734DE986EAEA994EA8852B7AF7 /* Sources */,
-				E90B52748B2F0954AC2530D4C55CEA78 /* Frameworks */,
-				F5736885FB5E7F187C6BD9B6BEA4D895 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftUIFlowLayout;
-			productName = SwiftUIFlowLayout;
-			productReference = 418B639D92684AB705EE9ED574FA0824 /* SwiftUIFlowLayout */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -243,25 +148,17 @@
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			minimizedProjectReferenceProxies = 0;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 3ACEC3ABA9ED53C6932F35E17A7CD5A4 /* Products */;
+			productRefGroup = 25A3BC0E5925CC73F99776E40BAFF57B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				470ABE952BDE79A6C6797F0876FC8155 /* Pods-helloSwiftUI */,
-				B9AC56EBB52552CDA2EB1AC5FD0B3B2A /* SwiftUIFlowLayout */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AC6364743CB10A08996706CD77FFCDE0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F5736885FB5E7F187C6BD9B6BEA4D895 /* Resources */ = {
+		585C90C8AA7A9F3D9B435CCF1399267E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -271,36 +168,58 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2A7738734DE986EAEA994EA8852B7AF7 /* Sources */ = {
+		458247C40D87A3D3301E6A166636E37F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C52926BCE16A7CDEE0180E4E26A6DC9B /* SwiftUIFlowLayout.swift in Sources */,
-				724142BA4CF68DC31A05E128DA045FB9 /* SwiftUIFlowLayout-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F34CB9143EDD3806EB9E6885A67CF80E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AF12CF9B1B1B6CF8F6DBE99D4124F597 /* Pods-helloSwiftUI-dummy.m in Sources */,
+				E2D1A107D9189BCBA35F5A18A406F136 /* Pods-helloSwiftUI-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		249F46CB3CB6860C47AF32585793C07A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftUIFlowLayout;
-			target = B9AC56EBB52552CDA2EB1AC5FD0B3B2A /* SwiftUIFlowLayout */;
-			targetProxy = 3C5F158C87495ED1BA8FB82329C813B1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+		7CC18636E94EA4F04E5559C5996D8F70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B618D3B8186876000D360766EE4D873 /* Pods-helloSwiftUI.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -353,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -366,123 +285,7 @@
 			};
 			name = Debug;
 		};
-		854E95FD90D38E8EB91FCAAEF4EFC9DF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DCD51F79E6570EF30AF17301306918A /* Pods-helloSwiftUI.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				INFOPLIST_FILE = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		96F2D7F3251271249CDDEFCBFD373C5F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 273B89831C369F8D6A0A94F7D144FD3B /* SwiftUIFlowLayout.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftUIFlowLayout/SwiftUIFlowLayout-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/SwiftUIFlowLayout/SwiftUIFlowLayout-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwiftUIFlowLayout/SwiftUIFlowLayout.modulemap";
-				PRODUCT_MODULE_NAME = SwiftUIFlowLayout;
-				PRODUCT_NAME = SwiftUIFlowLayout;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BF677EEB6AEA3FA35B14ECCBD01455E5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 991E4C40B41E823A12A0317A2ECAF303 /* Pods-helloSwiftUI.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				INFOPLIST_FILE = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
+		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -532,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -544,10 +347,11 @@
 			};
 			name = Release;
 		};
-		F947FDD02C65469BBD51A0601FB36509 /* Release */ = {
+		CD81DD6A66C71849C36636906EDF09E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85EF9EB1C18528C98F5E0C407564CC49 /* SwiftUIFlowLayout.release.xcconfig */;
+			baseConfigurationReference = 8163BDF0FD4F558F3854FE082D9F0E44 /* Pods-helloSwiftUI.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -559,57 +363,46 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftUIFlowLayout/SwiftUIFlowLayout-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/SwiftUIFlowLayout/SwiftUIFlowLayout-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/SwiftUIFlowLayout/SwiftUIFlowLayout.modulemap";
-				PRODUCT_MODULE_NAME = SwiftUIFlowLayout;
-				PRODUCT_NAME = SwiftUIFlowLayout;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DC2C7C45F3F3FD8751DFDEFE817466E /* Build configuration list for PBXNativeTarget "Pods-helloSwiftUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BF677EEB6AEA3FA35B14ECCBD01455E5 /* Debug */,
-				854E95FD90D38E8EB91FCAAEF4EFC9DF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
-				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
+				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7F6DDE6CAB023580DB476CFB06CF9203 /* Build configuration list for PBXNativeTarget "SwiftUIFlowLayout" */ = {
+		D1C33325821E791723A61F4E4078B998 /* Build configuration list for PBXNativeTarget "Pods-helloSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96F2D7F3251271249CDDEFCBFD373C5F /* Debug */,
-				F947FDD02C65469BBD51A0601FB36509 /* Release */,
+				CD81DD6A66C71849C36636906EDF09E1 /* Debug */,
+				7CC18636E94EA4F04E5559C5996D8F70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

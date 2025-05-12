@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182D72282DD2730600F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D72272DD2730600F4D25A /* Flow */; };
 		187F6C352D995AEE00E6566E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187F6C2F2D995AEE00E6566E /* Preview Assets.xcassets */; };
 		187F6C372D995AEE00E6566E /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F6C322D995AEE00E6566E /* OnboardingScreen.swift */; };
 		187F6C382D995AEE00E6566E /* helloSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F6C332D995AEE00E6566E /* helloSwiftUIApp.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182D72292DD2733A00F4D25A /* SwiftUI-Flow */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SwiftUI-Flow"; path = "/Users/apple/Library/Developer/Xcode/DerivedData/helloSwiftUI-gmwjfntlvrqzrmhilobnzzxfvzdg/SourcePackages/checkouts/SwiftUI-Flow"; sourceTree = "<absolute>"; };
 		187F6C2F2D995AEE00E6566E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		187F6C322D995AEE00E6566E /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		187F6C332D995AEE00E6566E /* helloSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloSwiftUIApp.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182D72282DD2730600F4D25A /* Flow in Frameworks */,
 				215A9C8A23925E6333271DDE /* Pods_helloSwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +131,7 @@
 		9BDB1B325426F8383C1A506F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				182D72292DD2733A00F4D25A /* SwiftUI-Flow */,
 				4436E74CEDC7FC1336393601 /* Pods-helloSwiftUI.debug.xcconfig */,
 				B3A66199285FF733AD515331 /* Pods-helloSwiftUI.release.xcconfig */,
 			);
@@ -153,7 +157,6 @@
 				18B298532D900E120039633B /* Sources */,
 				18B298542D900E120039633B /* Frameworks */,
 				18B298552D900E120039633B /* Resources */,
-				7CD0ACA4F7F45C9FA095B63B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,6 +191,9 @@
 			);
 			mainGroup = 18B2984E2D900E120039633B;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				182D72262DD2730600F4D25A /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 18B298582D900E120039633B /* Products */;
 			projectDirPath = "";
@@ -238,23 +244,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7CD0ACA4F7F45C9FA095B63B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -411,7 +400,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,7 +432,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,6 +468,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		182D72262DD2730600F4D25A /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		182D72272DD2730600F4D25A /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 182D72262DD2730600F4D25A /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
+			productName = Flow;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18B2984F2D900E120039633B /* Project object */;
 }

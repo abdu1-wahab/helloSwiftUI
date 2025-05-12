@@ -6,7 +6,7 @@ target 'helloSwiftUI' do
   use_frameworks!
 
   # Pods for helloSwiftUI
-pod 'SwiftUIFlowLayout', '~> 1.0.4'
+#pod 'SwiftUIFlowLayout'
 
 end
 

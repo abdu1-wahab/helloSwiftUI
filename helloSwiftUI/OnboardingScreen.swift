@@ -1,5 +1,5 @@
 import SwiftUI
-import SwiftUIFlowLayout
+import Flow
 
 struct OnboardingScreen: View {
     @State private var items: [Onboarding_Data] = [
@@ -31,22 +31,18 @@ struct OnboardingScreen: View {
                 Spacer()
                 Spacer()
 
-                FlowLayout(
-                    mode: .vstack,
-                    items: items,
-                    itemSpacing: 3
-                ) { index in
-                    ob_table_view(item: index)
-                        .onTapGesture {
-                            withAnimation {
-                                for i in items.indices {
-                                    //items[i].isSelected = (i == index) ? !items[i].isSelected : false
-
+                HFlow(itemSpacing: 12, rowSpacing: 16) {
+                    ForEach(items) { item in
+                        ob_table_view(item: item)
+                            .onTapGesture {
+                                if let idx = items.firstIndex(of: item) {
+                                    items[idx].isSelected.toggle()
                                 }
                             }
-                        }
+                    }
                 }
-                .padding()
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
 
                 Button(action: {
                     print("Button tapped")

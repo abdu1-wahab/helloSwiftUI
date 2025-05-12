@@ -11,7 +11,7 @@ struct ob_table_view: View {
             .truncationMode(.tail)
             .minimumScaleFactor(0.8)
             .padding(.horizontal, 14)
-            .padding(.vertical, 10)
+            .padding(.vertical, 15)
             .background(Color.black.opacity(item.isSelected ? 0.9 : 0.05))
             .foregroundColor(item.isSelected ? .white : .black)
             .cornerRadius(12)

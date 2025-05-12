@@ -1,16 +1,3 @@
-PODS:
-  - SwiftUIFlowLayout (1.0.5)
-
-DEPENDENCIES:
-  - SwiftUIFlowLayout (~> 1.0.4)
-
-SPEC REPOS:
-  trunk:
-    - SwiftUIFlowLayout
-
-SPEC CHECKSUMS:
-  SwiftUIFlowLayout: 7abf2f548de163172dab7eee25f76927c3035398
-
-PODFILE CHECKSUM: d38e4a7babded545242c9cd02bb720ab367cdf7e
+PODFILE CHECKSUM: fca34d6c4e5c8e7cccec13c649d0d9a6ae4b77e3
 
 COCOAPODS: 1.16.2
