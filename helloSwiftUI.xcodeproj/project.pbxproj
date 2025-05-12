@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		182D72282DD2730600F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D72272DD2730600F4D25A /* Flow */; };
+		182D722D2DD280B800F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D722C2DD280B800F4D25A /* Flow */; };
 		187F6C352D995AEE00E6566E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187F6C2F2D995AEE00E6566E /* Preview Assets.xcassets */; };
 		187F6C372D995AEE00E6566E /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F6C322D995AEE00E6566E /* OnboardingScreen.swift */; };
 		187F6C382D995AEE00E6566E /* helloSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F6C332D995AEE00E6566E /* helloSwiftUIApp.swift */; };
@@ -20,12 +21,12 @@
 		18809CC12DA055390051D702 /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18809CAB2DA055390051D702 /* Inter-ExtraBold.otf */; };
 		18809CC72DA055390051D702 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18809CB52DA055390051D702 /* Inter-SemiBold.otf */; };
 		18809CCA2DA055390051D702 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18809CA92DA055390051D702 /* Inter-Bold.otf */; };
+		18E64DD02DD28AB60065CCC3 /* onboarding_bg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E64DCF2DD28AB60065CCC3 /* onboarding_bg.swift */; };
 		18F1C87C2DCD32C6007D33BE /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1C87A2DCD32C6007D33BE /* DataModels.swift */; };
 		215A9C8A23925E6333271DDE /* Pods_helloSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF716B3A1198E072B416CDD /* Pods_helloSwiftUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		182D72292DD2733A00F4D25A /* SwiftUI-Flow */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "SwiftUI-Flow"; path = "/Users/apple/Library/Developer/Xcode/DerivedData/helloSwiftUI-gmwjfntlvrqzrmhilobnzzxfvzdg/SourcePackages/checkouts/SwiftUI-Flow"; sourceTree = "<absolute>"; };
 		187F6C2F2D995AEE00E6566E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		187F6C322D995AEE00E6566E /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		187F6C332D995AEE00E6566E /* helloSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helloSwiftUIApp.swift; sourceTree = "<group>"; };
@@ -39,6 +40,7 @@
 		18809CB42DA055390051D702 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		18809CB52DA055390051D702 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
 		18B298572D900E120039633B /* helloSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helloSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18E64DCF2DD28AB60065CCC3 /* onboarding_bg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboarding_bg.swift; sourceTree = "<group>"; };
 		18F1C87A2DCD32C6007D33BE /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		4436E74CEDC7FC1336393601 /* Pods-helloSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helloSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		5BF716B3A1198E072B416CDD /* Pods_helloSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_helloSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +54,7 @@
 			files = (
 				182D72282DD2730600F4D25A /* Flow in Frameworks */,
 				215A9C8A23925E6333271DDE /* Pods_helloSwiftUI.framework in Frameworks */,
+				182D722D2DD280B800F4D25A /* Flow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +87,7 @@
 			children = (
 				18809CB92DA055390051D702 /* inter */,
 				18809CA42DA055070051D702 /* Assets.xcassets */,
+				18E64DCF2DD28AB60065CCC3 /* onboarding_bg.swift */,
 			);
 			path = "Fonts & Assets";
 			sourceTree = "<group>";
@@ -131,7 +135,6 @@
 		9BDB1B325426F8383C1A506F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				182D72292DD2733A00F4D25A /* SwiftUI-Flow */,
 				4436E74CEDC7FC1336393601 /* Pods-helloSwiftUI.debug.xcconfig */,
 				B3A66199285FF733AD515331 /* Pods-helloSwiftUI.release.xcconfig */,
 			);
@@ -253,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E64DD02DD28AB60065CCC3 /* onboarding_bg.swift in Sources */,
 				18809CA22DA0509C0051D702 /* ob_table_view.swift in Sources */,
 				18F1C87C2DCD32C6007D33BE /* DataModels.swift in Sources */,
 				187F6C372D995AEE00E6566E /* OnboardingScreen.swift in Sources */,
@@ -482,6 +486,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		182D72272DD2730600F4D25A /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 182D72262DD2730600F4D25A /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
+			productName = Flow;
+		};
+		182D722C2DD280B800F4D25A /* Flow */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 182D72262DD2730600F4D25A /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
 			productName = Flow;

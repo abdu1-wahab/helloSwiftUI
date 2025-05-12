@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 struct ob_table_view: View {
-    let item: Onboarding_Data
+    @Binding var item: Onboarding_Data
 
     var body: some View {
         Text(item.title)
@@ -15,10 +15,14 @@ struct ob_table_view: View {
             .background(Color.black.opacity(item.isSelected ? 0.9 : 0.05))
             .foregroundColor(item.isSelected ? .white : .black)
             .cornerRadius(12)
-            .fixedSize(horizontal: true, vertical: false) // 👈 KEY FIX
+            .fixedSize(horizontal: true, vertical: false)
+            .onChange(of: item.isSelected) { newValue in
+                print("item '\(item.title)' isSelected changed to: \(newValue)")
+            }
     }
+    
 }
 
 #Preview {
-    ob_table_view(item: Onboarding_Data(title: "Strecth for 15 minutes", isSelected: false))
+    ob_table_view(item: .constant(Onboarding_Data(title: "Stretch for 15 minutes", isSelected: false)))
 }

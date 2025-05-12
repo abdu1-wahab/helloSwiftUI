@@ -2,15 +2,16 @@ import SwiftUI
 import Flow
 
 struct OnboardingScreen: View {
+    
     @State private var items: [Onboarding_Data] = [
-        Onboarding_Data(title: "Exercise"),
-        Onboarding_Data(title: "Read Books"),
-        Onboarding_Data(title: "Meditate"),
-        Onboarding_Data(title: "Plan Meals"),
-        Onboarding_Data(title: "Water Plants"),
-        Onboarding_Data(title: "Journal"),
-        Onboarding_Data(title: "Stretch for 15 minutes"),
-        Onboarding_Data(title: "Review goals before"),
+        .init(title: "Exercise", isSelected: false),
+        .init(title: "Read Books", isSelected: false),
+        .init(title: "Meditate", isSelected: false),
+        .init(title: "Plan Meals", isSelected: false),
+        .init(title: "Water Plants", isSelected: false),
+        .init(title: "Journal", isSelected: false),
+        .init(title: "Stretch for 15 minutes", isSelected: false),
+        .init(title: "Review goals before", isSelected: false),
     ]
 
     var body: some View {
@@ -32,17 +33,15 @@ struct OnboardingScreen: View {
                 Spacer()
 
                 HFlow(itemSpacing: 12, rowSpacing: 16) {
-                    ForEach(items) { item in
-                        ob_table_view(item: item)
+                    ForEach($items) { $item in
+                        ob_table_view(item: $item)
                             .onTapGesture {
-                                if let idx = items.firstIndex(of: item) {
-                                    items[idx].isSelected.toggle()
-                                }
+                                item.isSelected.toggle()
+                                print("Updated items after toggle: ", items.map { "\($0.title): \($0.isSelected)" })
                             }
                     }
                 }
                 .padding(.horizontal)
-                .frame(maxWidth: .infinity)
 
                 Button(action: {
                     print("Button tapped")

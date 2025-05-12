@@ -1,12 +1,13 @@
 import Foundation
 
 
-struct Onboarding_Data: Identifiable, Hashable, Equatable {
+struct Onboarding_Data: Identifiable {
     let id = UUID()
     var title: String
-    var isSelected: Bool = false
+    var isSelected: Bool
 
-    static func == (lhs: Onboarding_Data, rhs: Onboarding_Data) -> Bool {
-        lhs.id == rhs.id
+    init(title: String, isSelected: Bool) {
+        self.title = title
+        self.isSelected = isSelected
     }
 }
