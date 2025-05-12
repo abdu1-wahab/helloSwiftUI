@@ -14,6 +14,11 @@ struct OnboardingScreen: View {
         .init(title: "Review goals before", isSelected: false),
     ]
 
+    
+    var isButtonDisabled: Bool {
+        !items.contains(where: { $0.isSelected })
+    }
+    
     var body: some View {
         ZStack {
             Image("onboarding_bg")
@@ -26,22 +31,28 @@ struct OnboardingScreen: View {
                 Text("Pick some new habits to get started")
                     .font(.system(size: 36))
                     .fontWeight(.semibold)
-                    .padding(.horizontal, 35)
+                    .foregroundColor(.black)
+                    .padding()
+                    .padding(.leading, 2)
 
                 Spacer()
                 Spacer()
                 Spacer()
-
-                HFlow(itemSpacing: 12, rowSpacing: 16) {
+//                Text("Recommended")
+//                    .font(.system(size: 12))
+//                    .fontWeight(.semibold)
+//                    .foregroundColor(.orange)
+//                    .padding(.leading)
+                
+                HFlow(itemSpacing: 12, rowSpacing: 13) {
                     ForEach($items) { $item in
                         ob_table_view(item: $item)
                             .onTapGesture {
                                 item.isSelected.toggle()
-                                print("Updated items after toggle: ", items.map { "\($0.title): \($0.isSelected)" })
                             }
                     }
                 }
-                .padding(.horizontal)
+                .padding()
 
                 Button(action: {
                     print("Button tapped")
@@ -54,6 +65,8 @@ struct OnboardingScreen: View {
                         .cornerRadius(12)
                         .padding(.horizontal, 28)
                 }
+                .disabled(isButtonDisabled)
+                .opacity(isButtonDisabled ? 0.7 : 1.0)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }

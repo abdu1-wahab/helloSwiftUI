@@ -16,9 +16,6 @@ struct ob_table_view: View {
             .foregroundColor(item.isSelected ? .white : .black)
             .cornerRadius(12)
             .fixedSize(horizontal: true, vertical: false)
-            .onChange(of: item.isSelected) { newValue in
-                print("item '\(item.title)' isSelected changed to: \(newValue)")
-            }
     }
     
 }
