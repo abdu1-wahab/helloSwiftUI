@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct ob_table_view: View {
+struct ob_cell_view: View {
     @Binding var item: Onboarding_Data
 
     var body: some View {
@@ -21,5 +21,5 @@ struct ob_table_view: View {
 }
 
 #Preview {
-    ob_table_view(item: .constant(Onboarding_Data(title: "Stretch for 15 minutes", isSelected: false)))
+    ob_cell_view(item: .constant(Onboarding_Data(title: "Stretch for 15 minutes", isSelected: false)))
 }

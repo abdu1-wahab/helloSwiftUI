@@ -1,7 +1,7 @@
 import SwiftUI
 import Flow
 
-struct OnboardingScreen: View {
+struct OnboardingVC: View {
     
     @State private var items: [Onboarding_Data] = [
         .init(title: "Exercise", isSelected: false),
@@ -49,7 +49,7 @@ struct OnboardingScreen: View {
                 
                 HFlow(itemSpacing: 12, rowSpacing: 13) {
                     ForEach($items) { $item in
-                        ob_table_view(item: $item)
+                        ob_cell_view(item: $item)
                             .onTapGesture {
                                 item.isSelected.toggle()
                             }
@@ -64,6 +64,7 @@ struct OnboardingScreen: View {
                 }) {
                     Text("Continue")
                         .frame(maxWidth: .infinity)
+                        .fontWeight(.semibold)
                         .padding()
                         .foregroundColor(.white)
                         .background(Color("393433"))
@@ -79,5 +80,5 @@ struct OnboardingScreen: View {
 }
 
 #Preview {
-    OnboardingScreen()
+    OnboardingVC()
 }
