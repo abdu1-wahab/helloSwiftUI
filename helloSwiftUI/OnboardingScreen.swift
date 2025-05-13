@@ -11,7 +11,7 @@ struct OnboardingScreen: View {
         .init(title: "Water Plants", isSelected: false),
         .init(title: "Journal", isSelected: false),
         .init(title: "Stretch for 15 minutes", isSelected: false),
-        .init(title: "Review goals before", isSelected: false),
+        .init(title: "Review goals before bedtime", isSelected: false),
     ]
 
     
@@ -38,11 +38,14 @@ struct OnboardingScreen: View {
                 Spacer()
                 Spacer()
                 Spacer()
-//                Text("Recommended")
-//                    .font(.system(size: 12))
-//                    .fontWeight(.semibold)
-//                    .foregroundColor(.orange)
-//                    .padding(.leading)
+                Text("Recommended")
+                    .font(.system(size: 12))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 30)
+                    .padding(.top, 20)
+                    
                 
                 HFlow(itemSpacing: 12, rowSpacing: 13) {
                     ForEach($items) { $item in
@@ -52,7 +55,9 @@ struct OnboardingScreen: View {
                             }
                     }
                 }
-                .padding()
+                .padding(.bottom, 20)
+                
+                
 
                 Button(action: {
                     print("Button tapped")
