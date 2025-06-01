@@ -10,7 +10,7 @@ struct SplashVC: View {
                 .ignoresSafeArea()
 
             if showOnboarding {
-                OnboardingVC() // Your destination view
+                OnboardingVC()
                     .transition(.opacity)
             } else {
                 VStack {
@@ -33,3 +33,4 @@ struct SplashVC: View {
 #Preview {
     SplashVC()
 }
+

@@ -13,7 +13,8 @@ struct OnboardingVC: View {
         .init(title: "Stretch for 15 minutes", isSelected: false),
         .init(title: "Review goals before bedtime", isSelected: false),
     ]
-
+    
+    @State private var showMainApp = false
     
     var isButtonDisabled: Bool {
         !items.contains(where: { $0.isSelected })
@@ -60,7 +61,7 @@ struct OnboardingVC: View {
                 
 
                 Button(action: {
-                    print("Button tapped")
+                    showMainApp = true
                 }) {
                     Text("Continue")
                         .frame(maxWidth: .infinity)
@@ -75,10 +76,15 @@ struct OnboardingVC: View {
                 .opacity(isButtonDisabled ? 0.7 : 1.0)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .fullScreenCover(isPresented: $showMainApp) {
+                NavigationStack {
+                    HomeVC()
+                }
+            }
         }
     }
 }
 
-#Preview {
-    OnboardingVC()
-}
+//#Preview {
+//    OnboardingVC()
+//}
