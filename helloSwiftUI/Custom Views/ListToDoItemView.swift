@@ -16,7 +16,7 @@ struct ListToDoItemView: View {
                 Text("\(item.total_tasks)")
                     .font(.system(size: 14))
                     .fontWeight(.regular)
-                    .foregroundColor(Color("B9B9C3"))
+                    .foregroundColor(Color(hex: "B9B9C3"))
                     .padding(.trailing)
                 
             }
@@ -28,5 +28,5 @@ struct ListToDoItemView: View {
 }
 
 #Preview {
-    ListToDoItemView(item: .constant(TO_DO_Data(title: "All Tasks", imageName: "study_icon", bg_clr: Color("1B1B1D"), total_tasks: 80000)))
+    ListToDoItemView(item: .constant(TO_DO_Data(title: "All Tasks", imageName: "study_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 80000)))
 }

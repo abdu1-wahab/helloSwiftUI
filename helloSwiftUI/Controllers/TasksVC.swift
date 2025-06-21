@@ -15,10 +15,10 @@ struct TasksVC: View {
                         dismiss()
                     })  {
                         Image(systemName: "arrow.backward")
-                            .foregroundColor(Color("7C7C7C"))
+                            .foregroundColor(Color(hex: "7C7C7C"))
                             .frame(width: 4, height: 4)
                             .padding()
-                            .background(Color("1B1B1D"))
+                            .background(Color(hex: "#1B1B1D"))
                             .clipShape(Circle())
                             .shadow(radius: 1)
                     }
@@ -67,6 +67,7 @@ struct TasksVC: View {
                     .background(Color.blue)
                     .cornerRadius(20)
                     .padding(.horizontal, 20)
+                    .padding(.bottom, 40)
                 }
             }
         }

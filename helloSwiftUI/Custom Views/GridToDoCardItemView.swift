@@ -24,5 +24,5 @@ struct GridToDoCardItemView: View {
 }
 
 #Preview {
-    GridToDoCardItemView(item: .constant(TO_DO_Data(title: "All Tasks", imageName: "img_allTasks", bg_clr: Color("393433"), total_tasks: 12)))
+    GridToDoCardItemView(item: .constant(TO_DO_Data(title: "All Tasks", imageName: "img_allTasks", bg_clr: Color(hex: "393433"), total_tasks: 12)))
 }

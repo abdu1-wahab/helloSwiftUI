@@ -50,7 +50,7 @@ struct OnboardingVC: View {
                 
                 HFlow(itemSpacing: 12, rowSpacing: 13) {
                     ForEach($items) { $item in
-                        ob_cell_view(item: $item)
+                        ResizableGridCell(item: $item)
                             .onTapGesture {
                                 item.isSelected.toggle()
                             }
@@ -68,7 +68,7 @@ struct OnboardingVC: View {
                         .fontWeight(.semibold)
                         .padding()
                         .foregroundColor(.white)
-                        .background(Color("393433"))
+                        .background(Color(hex: "393433"))
                         .cornerRadius(12)
                         .padding(.horizontal, 28)
                 }

@@ -12,13 +12,18 @@
 		187F6C352D995AEE00E6566E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187F6C2F2D995AEE00E6566E /* Preview Assets.xcassets */; };
 		187F6C372D995AEE00E6566E /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F6C322D995AEE00E6566E /* OnboardingVC.swift */; };
 		187F6C382D995AEE00E6566E /* FocusFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F6C332D995AEE00E6566E /* FocusFlow.swift */; };
-		18809CA22DA0509C0051D702 /* ob_cell_view.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18809CA12DA0509C0051D702 /* ob_cell_view.swift */; };
+		18809CA22DA0509C0051D702 /* ResizableGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18809CA12DA0509C0051D702 /* ResizableGridCell.swift */; };
 		18809CA62DA055070051D702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18809CA42DA055070051D702 /* Assets.xcassets */; };
 		1899B1512DEAF4C5006246DA /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B1502DEAF4C5006246DA /* HomeVC.swift */; };
 		1899B1532DEB14FA006246DA /* GridToDoCardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B1522DEB14FA006246DA /* GridToDoCardItemView.swift */; };
 		1899B1552DEB2647006246DA /* ListToDoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B1542DEB2647006246DA /* ListToDoItemView.swift */; };
 		1899B1572DEB9596006246DA /* TasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B1562DEB9596006246DA /* TasksVC.swift */; };
 		1899B1592DEB9A32006246DA /* NoTasksFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B1582DEB9A32006246DA /* NoTasksFoundView.swift */; };
+		1899B15B2DEC24B3006246DA /* AddNewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B15A2DEC24B3006246DA /* AddNewTaskVC.swift */; };
+		1899B15D2DEC27AD006246DA /* TaskDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B15C2DEC27AD006246DA /* TaskDetailCell.swift */; };
+		1899B15F2DEE277C006246DA /* Database_classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B15E2DEE277C006246DA /* Database_classes.swift */; };
+		1899B1612DEE2863006246DA /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1899B1602DEE2863006246DA /* DBManager.swift */; };
+		18D4BAD92E068C7D0096EF88 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BAD82E068C790096EF88 /* ColorExtension.swift */; };
 		18E64E122DD3BB0B0065CCC3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 18E64E112DD3BB0B0065CCC3 /* Lottie */; };
 		18E64E1A2DD3BEF30065CCC3 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E64E192DD3BEF30065CCC3 /* SplashVC.swift */; };
 		18E64E342DD3BF680065CCC3 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18E64E2B2DD3BF680065CCC3 /* Inter-Bold.otf */; };
@@ -37,14 +42,19 @@
 		187F6C2F2D995AEE00E6566E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		187F6C322D995AEE00E6566E /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		187F6C332D995AEE00E6566E /* FocusFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusFlow.swift; sourceTree = "<group>"; };
-		18809CA12DA0509C0051D702 /* ob_cell_view.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ob_cell_view.swift; sourceTree = "<group>"; };
+		18809CA12DA0509C0051D702 /* ResizableGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableGridCell.swift; sourceTree = "<group>"; };
 		18809CA42DA055070051D702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1899B1502DEAF4C5006246DA /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1899B1522DEB14FA006246DA /* GridToDoCardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridToDoCardItemView.swift; sourceTree = "<group>"; };
 		1899B1542DEB2647006246DA /* ListToDoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListToDoItemView.swift; sourceTree = "<group>"; };
 		1899B1562DEB9596006246DA /* TasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksVC.swift; sourceTree = "<group>"; };
 		1899B1582DEB9A32006246DA /* NoTasksFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTasksFoundView.swift; sourceTree = "<group>"; };
+		1899B15A2DEC24B3006246DA /* AddNewTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskVC.swift; sourceTree = "<group>"; };
+		1899B15C2DEC27AD006246DA /* TaskDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailCell.swift; sourceTree = "<group>"; };
+		1899B15E2DEE277C006246DA /* Database_classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database_classes.swift; sourceTree = "<group>"; };
+		1899B1602DEE2863006246DA /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		18B298572D900E120039633B /* helloSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helloSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		18D4BAD82E068C790096EF88 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		18E64E192DD3BEF30065CCC3 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		18E64E2B2DD3BF680065CCC3 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
 		18E64E2C2DD3BF680065CCC3 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -127,10 +137,11 @@
 		18E64E142DD3BD260065CCC3 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				18809CA12DA0509C0051D702 /* ob_cell_view.swift */,
+				18809CA12DA0509C0051D702 /* ResizableGridCell.swift */,
 				1899B1522DEB14FA006246DA /* GridToDoCardItemView.swift */,
 				1899B1542DEB2647006246DA /* ListToDoItemView.swift */,
 				1899B1582DEB9A32006246DA /* NoTasksFoundView.swift */,
+				1899B15C2DEC27AD006246DA /* TaskDetailCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -142,6 +153,7 @@
 				18E64E192DD3BEF30065CCC3 /* SplashVC.swift */,
 				1899B1502DEAF4C5006246DA /* HomeVC.swift */,
 				1899B1562DEB9596006246DA /* TasksVC.swift */,
+				1899B15A2DEC24B3006246DA /* AddNewTaskVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,7 +199,10 @@
 		18F1C87B2DCD32C6007D33BE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				18D4BAD82E068C790096EF88 /* ColorExtension.swift */,
 				18F1C87A2DCD32C6007D33BE /* DataModels.swift */,
+				1899B15E2DEE277C006246DA /* Database_classes.swift */,
+				1899B1602DEE2863006246DA /* DBManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -318,16 +333,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18809CA22DA0509C0051D702 /* ob_cell_view.swift in Sources */,
+				1899B15B2DEC24B3006246DA /* AddNewTaskVC.swift in Sources */,
+				1899B15D2DEC27AD006246DA /* TaskDetailCell.swift in Sources */,
+				18809CA22DA0509C0051D702 /* ResizableGridCell.swift in Sources */,
 				18E64E1A2DD3BEF30065CCC3 /* SplashVC.swift in Sources */,
 				18F1C87C2DCD32C6007D33BE /* DataModels.swift in Sources */,
 				1899B1512DEAF4C5006246DA /* HomeVC.swift in Sources */,
 				1899B1572DEB9596006246DA /* TasksVC.swift in Sources */,
 				1899B1532DEB14FA006246DA /* GridToDoCardItemView.swift in Sources */,
+				18D4BAD92E068C7D0096EF88 /* ColorExtension.swift in Sources */,
 				187F6C372D995AEE00E6566E /* OnboardingVC.swift in Sources */,
 				1899B1592DEB9A32006246DA /* NoTasksFoundView.swift in Sources */,
 				1899B1552DEB2647006246DA /* ListToDoItemView.swift in Sources */,
+				1899B15F2DEE277C006246DA /* Database_classes.swift in Sources */,
 				187F6C382D995AEE00E6566E /* FocusFlow.swift in Sources */,
+				1899B1612DEE2863006246DA /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +493,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,7 +527,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16;
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

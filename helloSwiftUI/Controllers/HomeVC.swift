@@ -8,21 +8,22 @@ struct HomeVC: View {
     ]
     
     @State private var items: [TO_DO_Data] = [
-        .init(title: "All Tasks", imageName: "img_allTasks", bg_clr: Color("1B1B1D"), total_tasks: 12),
-        .init(title: "Today", imageName: "img_today_tasks", bg_clr: Color("1B1B1D"), total_tasks: 4),
-        .init(title: "Calendar", imageName: "img_calender", bg_clr: Color("1B1B1D"), total_tasks: 8),
-        .init(title: "Completed", imageName: "img_completed_tasks", bg_clr: Color("1B1B1D"), total_tasks: 7)
+        .init(title: "All Tasks", imageName: "img_allTasks", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12),
+        .init(title: "Today", imageName: "img_today_tasks", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 4),
+        .init(title: "Calendar", imageName: "img_calender", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 8),
+        .init(title: "Completed", imageName: "img_completed_tasks", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 7)
     ]
     
     @State private var toDOItems: [TO_DO_Data] = [
-        .init(title: "ToDo", imageName: "tick_icon", bg_clr: Color("1B1B1D"), total_tasks: 12),
-        .init(title: "Shopping", imageName: "shopping_icon", bg_clr: Color("1B1B1D"), total_tasks: 12),
-        .init(title: "Work", imageName: "work_icon", bg_clr: Color("1B1B1D"), total_tasks: 12),
-        .init(title: "Study", imageName: "study_icon", bg_clr: Color("1B1B1D"), total_tasks: 12)
+        .init(title: "ToDo", imageName: "tick_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12),
+        .init(title: "Shopping", imageName: "shopping_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12),
+        .init(title: "Work", imageName: "work_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12),
+        .init(title: "Study", imageName: "study_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12)
     ]
     
-    // This will track navigation path
     @State private var navigationPath = NavigationPath()
+    @State private var isShowingAddTask = false
+
     
     var body: some View {
         NavigationStack(path: $navigationPath) {
@@ -75,7 +76,7 @@ struct HomeVC: View {
                                 Text("New List")
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color("3B82F6"))
+                                    .foregroundColor(Color(hex: "#3B82F6"))
                             }
                         }
                     }
@@ -106,7 +107,7 @@ struct HomeVC: View {
                         Spacer()
                         HStack {
                             Button(action: {
-                                print("Button tapped")
+                                isShowingAddTask = true
                             }) {
                                 HStack(spacing: 8) {
                                     Image("img_add_icon_white")
@@ -119,11 +120,14 @@ struct HomeVC: View {
                             .padding()
                             .background(Color.blue)
                             .cornerRadius(20)
+                            .fullScreenCover(isPresented: $isShowingAddTask) {
+                                AddNewTaskVC()
+                            }
                         }
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, minHeight: 64, maxHeight: 64)
-                    .background(Color("1B1B1D"))
+                    .background(Color(hex: "#1B1B1D"))
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }

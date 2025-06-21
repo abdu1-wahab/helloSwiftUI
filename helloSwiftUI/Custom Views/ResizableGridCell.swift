@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct ob_cell_view: View {
+struct ResizableGridCell: View {
     @Binding var item: Onboarding_Data
 
     var body: some View {
@@ -21,5 +21,5 @@ struct ob_cell_view: View {
 }
 
 #Preview {
-    ob_cell_view(item: .constant(Onboarding_Data(title: "Stretch for 15 minutes", isSelected: false)))
+    ResizableGridCell(item: .constant(Onboarding_Data(title: "Stretch for 15 minutes", isSelected: false)))
 }
