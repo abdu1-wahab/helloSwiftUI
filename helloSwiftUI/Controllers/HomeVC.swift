@@ -21,10 +21,11 @@ struct HomeVC: View {
         .init(title: "Study", imageName: "study_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12)
     ]
     
-    @State private var navigationPath = NavigationPath()
+    //@State private var navigationPath = NavigationPath()
     @State private var isShowingAddTask = false
 
-    
+    @State private var navigationPath: [Route] = []
+
     var body: some View {
         NavigationStack(path: $navigationPath) {
             ZStack {
@@ -43,6 +44,7 @@ struct HomeVC: View {
                         }
                         Spacer()
                         Button(action: {
+                            navigationPath.append(.settings)
                             print("Setting Button Tapped")
                         }) {
                             Image("img_settings_icon")
@@ -88,7 +90,7 @@ struct HomeVC: View {
                         ForEach(toDOItems.indices, id: \.self) { index in
                             Button {
                                 // push the selected item on the navigation stack
-                                navigationPath.append(toDOItems[index])
+                                navigationPath.append(.taskDetail(toDOItems[index]))
                             } label: {
                                 ListToDoItemView(item: $toDOItems[index])
                             }
@@ -132,9 +134,15 @@ struct HomeVC: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             // Destination mapping using navigationDestination modifier
-            .navigationDestination(for: TO_DO_Data.self) { item in
-                TasksVC()
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .settings:
+                    SettingsVC()
+                case .taskDetail:
+                    TasksVC()
+                }
             }
+
         }
     }
 }

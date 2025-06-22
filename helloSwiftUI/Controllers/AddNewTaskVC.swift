@@ -9,6 +9,11 @@ struct AddNewTaskVC: View {
     @State private var endDate = Date()
     @State private var endTime = Date()
     
+    @State private var selectedGroup = "Task Group"
+    @State private var isPickerPresented = false
+    
+    let taskGroups = ["Task Group", "Work", "Personal", "Shopping"]
+    
     func formattedDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMM, yyyy"
@@ -51,10 +56,9 @@ struct AddNewTaskVC: View {
                         .foregroundColor(.white)
                     
                     Spacer()
-                    
-                    // Empty spacer to balance the layout
                     Color.clear.frame(width: 48, height: 48)
                 }
+                .padding(3)
                 
                 // new list group
                 HStack {
@@ -66,12 +70,17 @@ struct AddNewTaskVC: View {
                             .fontWeight(.regular)
                             .foregroundColor(Color(hex: "7C7C7C"))
                         
-                        Text("Task Group")
-                            .font(.system(size: 14))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .padding(.top,2)
-                        
+                        Picker("", selection: $selectedGroup) {
+                            ForEach(taskGroups, id: \.self) { group in
+                                Text(group)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(height: 20)
+                        .tint(.white)
+
                     }
                     
                     Spacer()
@@ -102,10 +111,10 @@ struct AddNewTaskVC: View {
                         .lineLimit(1)
                         .submitLabel(.done)
                         .onSubmit {
-                                // Dismiss keyboard or handle action
-                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                            }
-
+                            // Dismiss keyboard or handle action
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        }
+                        
                     }
                     .padding(8)
                 }
@@ -113,7 +122,7 @@ struct AddNewTaskVC: View {
                 .background(Color(hex: "#1B1B1D"))
                 .cornerRadius(12)
                 .padding([.top,.bottom], 20)
-               
+                
                 // task description
                 HStack {
                     VStack(alignment: .leading){
@@ -131,9 +140,9 @@ struct AddNewTaskVC: View {
                         )
                         .submitLabel(.done)
                         .onSubmit {
-                                // Dismiss keyboard or handle action
-                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                            }
+                            // Dismiss keyboard or handle action
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        }
                         Spacer()
                     }
                     .padding(8)
@@ -204,7 +213,7 @@ struct AddNewTaskVC: View {
                                 .font(.system(size: 10))
                                 .fontWeight(.regular)
                                 .foregroundColor(Color(hex: "7C7C7C"))
-                            Text(formattedDate(endDate))
+                            Text(formattedTime(endTime))
                                 .font(.system(size: 14))
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color(hex: "FFFFFF"))
@@ -231,12 +240,11 @@ struct AddNewTaskVC: View {
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
                         .background(Color(hex: "3B82F6"))
-                        .cornerRadius(20)
+                        .cornerRadius(14)
                         .padding(.horizontal, 22)
                 }
-
-                
             }
+            .padding(.horizontal, 5)
             
         }
     }

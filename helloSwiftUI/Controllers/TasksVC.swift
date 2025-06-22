@@ -25,7 +25,7 @@ struct TasksVC: View {
 
                     Spacer()
                     
-                    Text("List Name")
+                    Text("New Task")
                         .font(.system(size: 18))
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
