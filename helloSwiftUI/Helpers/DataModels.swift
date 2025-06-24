@@ -50,7 +50,7 @@ class SettingsViewModel: ObservableObject {
 
 enum Route: Hashable {
     case settings
-    case taskDetail(TO_DO_Data)
+    case taskDetail(TaskList)
 }
 
 enum AppTheme: String, CaseIterable {

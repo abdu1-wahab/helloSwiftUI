@@ -10,7 +10,7 @@ class Task: NSManagedObject {
     @NSManaged var dueDate: Date?
     @NSManaged var time: Date?
     @NSManaged var isCompleted: Bool
-    @NSManaged var list: TaskList?
+    @NSManaged var lists: TaskList?
 }
 
 extension Task {

@@ -1,78 +1,57 @@
 import SwiftUI
 
 struct HomeVC: View {
-    
-    let rows = [
-        GridItem(.fixed(120)),
-        GridItem(.fixed(120))
-    ]
-    
-    @State private var items: [TO_DO_Data] = [
-        .init(title: "All Tasks", imageName: "img_allTasks", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12),
-        .init(title: "Today", imageName: "img_today_tasks", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 4),
-        .init(title: "Calendar", imageName: "img_calender", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 8),
-        .init(title: "Completed", imageName: "img_completed_tasks", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 7)
-    ]
-    
-    @State private var toDOItems: [TO_DO_Data] = [
-        .init(title: "ToDo", imageName: "tick_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12),
-        .init(title: "Shopping", imageName: "shopping_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12),
-        .init(title: "Work", imageName: "work_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12),
-        .init(title: "Study", imageName: "study_icon", bg_clr: Color(hex: "#1B1B1D"), total_tasks: 12)
-    ]
-    
-    //@State private var navigationPath = NavigationPath()
-    @State private var isShowingAddTask = false
+    @StateObject private var listViewModel = TaskListViewModel(repository: TaskListRepository())
+    @StateObject private var taskViewModel = TaskViewModel(repository: TaskRepository())
 
     @State private var navigationPath: [Route] = []
+    @State private var isShowingAddTask = false
 
     var body: some View {
         NavigationStack(path: $navigationPath) {
             ZStack {
-                Color.black
-                    .ignoresSafeArea()
-                
+                Color.black.ignoresSafeArea()
+
                 VStack {
-                    // top bar
+                    // Top Bar
                     HStack {
                         Spacer()
-                        ZStack {
-                            Text("To Do List")
-                                .font(.system(size: 18))
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                        }
+                        Text("To Do List")
+                            .font(.system(size: 18))
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
                         Spacer()
-                        Button(action: {
+                        Button {
                             navigationPath.append(.settings)
-                            print("Setting Button Tapped")
-                        }) {
+                        } label: {
                             Image("img_settings_icon")
                         }
                     }
                     .padding(.horizontal, 8)
                     .padding(.top, 20)
-                    
-                    // search bar
+
+                    // Search Bar
                     Image("search_Bar")
-                    
-                    // top cards
-                    LazyHGrid(rows: rows, spacing: 8) {
-                        ForEach($items) { $item in
-                            GridToDoCardItemView(item: $item)
-                        }
-                    }
-                    
-                    // total Lists View
+
+                    // Dashboard Cards
+                    DashboardGridView(
+                        allTasks: taskViewModel.allCount,
+                        today: taskViewModel.todayCount,
+                        completed: taskViewModel.completedCount,
+                        upcoming: taskViewModel.upcomingCount
+                    )
+                    .padding(.horizontal)
+
+                    // List Header
                     HStack {
                         Text("To Do List")
                             .font(.system(size: 18))
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                         Spacer()
-                        Button(action: {
-                            print("Setting Button Tapped")
-                        }) {
+                        Button {
+                            // Add new list action
+                        } label: {
                             HStack(spacing: 2) {
                                 Image("img_add_icon")
                                 Text("New List")
@@ -84,65 +63,50 @@ struct HomeVC: View {
                     }
                     .padding(.top)
                     .padding(.horizontal)
-                    
-                    // new lists as buttons (no arrow)
-                    List {
-                        ForEach(toDOItems.indices, id: \.self) { index in
-                            Button {
-                                // push the selected item on the navigation stack
-                                navigationPath.append(.taskDetail(toDOItems[index]))
-                            } label: {
-                                ListToDoItemView(item: $toDOItems[index])
-                            }
-                            .listRowInsets(EdgeInsets())
-                            .padding(.bottom, 10)
-                            .listRowSeparator(.hidden)
-                            .listRowBackground(Color.clear)
-                            .buttonStyle(PlainButtonStyle()) // prevent button styling
-                        }
+
+                    // List View from Core Data
+                    TaskListSectionView(lists: listViewModel.lists) { selectedList in
+                        navigationPath.append(.taskDetail(selectedList))
                     }
                     .listStyle(.plain)
-                    .padding(.horizontal)
-                    .frame(minHeight: 281, maxHeight: 281)
-                    
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Button(action: {
-                                isShowingAddTask = true
-                            }) {
-                                HStack(spacing: 8) {
-                                    Image("img_add_icon_white")
-                                    Text("New Task")
-                                        .font(.system(size: 12))
-                                        .fontWeight(.regular)
-                                        .foregroundColor(.white)
-                                }
+
+                    Spacer()
+
+                    // Bottom New Task Button
+                    HStack {
+                        Button {
+                            isShowingAddTask = true
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image("img_add_icon_white")
+                                Text("New Task")
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.white)
                             }
                             .padding()
                             .background(Color.blue)
                             .cornerRadius(20)
-                            .fullScreenCover(isPresented: $isShowingAddTask) {
-                                AddNewTaskVC()
-                            }
                         }
-                        Spacer()
                     }
-                    .frame(maxWidth: .infinity, minHeight: 64, maxHeight: 64)
-                    .background(Color(hex: "#1B1B1D"))
+                    .frame(height: 64)
+                    //.background(Color(hex: "#1B1B1D"))
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            // Destination mapping using navigationDestination modifier
             .navigationDestination(for: Route.self) { route in
                 switch route {
                 case .settings:
                     SettingsVC()
-                case .taskDetail:
-                    TasksVC()
+                case .taskDetail(let list):
+                    TasksVC(taskList: list)
                 }
             }
-
+            .task {
+                await listViewModel.loadLists()
+                await taskViewModel.loadDashboardCounts()
+            }
+            .fullScreenCover(isPresented: $isShowingAddTask) {
+                AddNewTaskVC()
+            }
         }
     }
 }

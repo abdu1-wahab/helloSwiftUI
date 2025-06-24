@@ -6,42 +6,44 @@ final class TaskViewModel: ObservableObject {
 
     @Published var tasks: [Task] = []
 
+    // Dashboard stats
+    @Published var allCount: Int = 0
+    @Published var completedCount: Int = 0
+    @Published var todayCount: Int = 0
+    @Published var upcomingCount: Int = 0
+
     init(repository: TaskRepositoryProtocol) {
         self.repository = repository
     }
 
+    // Load tasks for a specific list
     func loadTasks(for list: TaskList) async {
         do {
             tasks = try await repository.fetch(for: list)
         } catch {
-            print("Error fetching tasks: \(error)")
+            print("❌ Error fetching tasks: \(error)")
         }
     }
 
+    // Toggle task completion
     func toggleTask(_ task: Task) async {
         do {
             try await repository.toggleCompletion(task)
-            await loadTasks(for: task.list!)
+            await loadTasks(for: task.lists!)
         } catch {
-            print("Error toggling: \(error)")
+            print("❌ Error toggling: \(error)")
         }
     }
-//    
-//    func addTask(_ input: NewTaskInput, to list: TaskList) async {
-//        do {
-//            let task = Task(context: CoreDataManager.shared.context)
-//            task.id = UUID()
-//            task.title = input.title
-//            task.taskDescription = input.description
-//            task.createdAt = Date()
-//            task.isCompleted = false
-//            task.list = list
-//
-//            try await taskRepository.create(task)
-//            await loadTasks(for: list)
-//        } catch {
-//            print("❌ Error creating task: \(error)")
-//        }
-//    }
-//
+
+    // Load global dashboard stats
+    func loadDashboardCounts() async {
+        do {
+            allCount = try repository.countAllTasks()
+            completedCount = try repository.countCompletedTasks()
+            todayCount = try repository.countTasksDueToday()
+            upcomingCount = try repository.countUpcomingTasks()
+        } catch {
+            print("❌ Error loading dashboard counts: \(error)")
+        }
+    }
 }

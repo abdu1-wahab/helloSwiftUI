@@ -85,6 +85,6 @@ struct OnboardingVC: View {
     }
 }
 
-//#Preview {
-//    OnboardingVC()
-//}
+#Preview {
+    OnboardingVC()
+}

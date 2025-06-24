@@ -2,18 +2,21 @@ import SwiftUI
 
 struct TasksVC: View {
     
-    let subtiles: Int = 0
+    let taskList: TaskList
+
+    @StateObject private var viewModel = TaskViewModel(repository: TaskRepository())
     @Environment(\.dismiss) var dismiss
-    
+
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            
+
             VStack(spacing: 0) {
+                // Top Bar
                 HStack {
-                    Button(action: {
+                    Button {
                         dismiss()
-                    })  {
+                    } label: {
                         Image(systemName: "arrow.backward")
                             .foregroundColor(Color(hex: "7C7C7C"))
                             .frame(width: 4, height: 4)
@@ -24,54 +27,75 @@ struct TasksVC: View {
                     }
 
                     Spacer()
-                    
-                    Text("New Task")
+
+                    Text(taskList.name ?? "Tasks")
                         .font(.system(size: 18))
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                    
+
                     Spacer()
-                    
-                    // Empty spacer to balance the layout
+
+                    // Spacer to balance layout
                     Color.clear.frame(width: 48, height: 48)
                 }
                 .padding(.horizontal, 8)
                 .padding(.top, 20)
-                
+
                 Spacer()
-                
-                if subtiles == 0 {
+
+                // Tasks list or empty view
+                if viewModel.tasks.isEmpty {
                     NoTasksFoundView()
                 } else {
-                    Text("Hello")
-                        .foregroundColor(.white)
+                    ScrollView {
+                        VStack(spacing: 10) {
+                            ForEach(viewModel.tasks, id: \.self) { task in
+                                HStack {
+                                    Text(task.title ?? "")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 14))
+                                    Spacer()
+                                    if task.isCompleted {
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .foregroundColor(.green)
+                                    }
+                                }
+                                .padding()
+                                .background(Color(hex: "#1B1B1D"))
+                                .cornerRadius(10)
+                            }
+                        }
+                        .padding()
+                    }
                 }
-                
+
                 Spacer()
-                
-                // Bottom Button
+
+                // Bottom New Task Button
                 HStack {
                     Spacer()
-                    Button(action: {
-                        print("Button tapped")
-                    }) {
+                    Button {
+                        // trigger add task screen if needed
+                    } label: {
                         HStack(spacing: 8) {
                             Image("img_add_icon_white")
                             Text("New Task")
                                 .font(.system(size: 12))
-                                .fontWeight(.regular)
                                 .foregroundColor(.white)
                         }
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(20)
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 40)
                     }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(20)
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 40)
                 }
             }
         }
         .navigationBarBackButtonHidden(true)
+        .task {
+            await viewModel.loadTasks(for: taskList)
+        }
     }
 }
 
@@ -83,6 +107,6 @@ extension UINavigationController {
 }
 
 
-#Preview {
-    TasksVC()
-}
+//#Preview {
+//    TasksVC(taskList: TaskLi)
+//}

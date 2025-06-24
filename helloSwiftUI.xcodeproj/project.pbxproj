@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		182D72282DD2730600F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D72272DD2730600F4D25A /* Flow */; };
 		182D722D2DD280B800F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D722C2DD280B800F4D25A /* Flow */; };
+		18657AEA2E0B45440092ACEA /* DashboardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18657AE92E0B45440092ACEA /* DashboardGridView.swift */; };
+		18657AEC2E0B45BC0092ACEA /* TaskListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18657AEB2E0B45B70092ACEA /* TaskListsView.swift */; };
 		18D4BC062E0833770096EF88 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE72E0833770096EF88 /* OnboardingVC.swift */; };
 		18D4BC072E0833770096EF88 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE82E0833770096EF88 /* SettingsVC.swift */; };
 		18D4BC082E0833770096EF88 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE62E0833770096EF88 /* HomeVC.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18657AE92E0B45440092ACEA /* DashboardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGridView.swift; sourceTree = "<group>"; };
+		18657AEB2E0B45B70092ACEA /* TaskListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListsView.swift; sourceTree = "<group>"; };
 		18B298572D900E120039633B /* helloSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helloSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4BBD52E0833770096EF88 /* FocusFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusFlow.swift; sourceTree = "<group>"; };
 		18D4BBD72E0833770096EF88 /* to_do.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = to_do.json; sourceTree = "<group>"; };
@@ -188,12 +192,14 @@
 		18D4BBF22E0833770096EF88 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				18657AEB2E0B45B70092ACEA /* TaskListsView.swift */,
 				18D4BBEC2E0833770096EF88 /* GridToDoCardItemView.swift */,
 				18D4BBED2E0833770096EF88 /* ListToDoItemView.swift */,
 				18D4BBEE2E0833770096EF88 /* NoTasksFoundView.swift */,
 				18D4BBEF2E0833770096EF88 /* ResizableGridCell.swift */,
 				18D4BBF02E0833770096EF88 /* settingsView.swift */,
 				18D4BBF12E0833770096EF88 /* TaskDetailCell.swift */,
+				18657AE92E0B45440092ACEA /* DashboardGridView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -392,8 +398,10 @@
 				18D4BC082E0833770096EF88 /* HomeVC.swift in Sources */,
 				18D4BC092E0833770096EF88 /* TaskModel.swift in Sources */,
 				18D4BC0A2E0833770096EF88 /* settingsView.swift in Sources */,
+				18657AEC2E0B45BC0092ACEA /* TaskListsView.swift in Sources */,
 				18D4BC0B2E0833770096EF88 /* CalenderVC.swift in Sources */,
 				18D4BC0C2E0833770096EF88 /* TasksVC.swift in Sources */,
+				18657AEA2E0B45440092ACEA /* DashboardGridView.swift in Sources */,
 				18D4BC0D2E0833770096EF88 /* ResizableGridCell.swift in Sources */,
 				18D4BC0E2E0833770096EF88 /* TaskRepo.swift in Sources */,
 				18D4BC0F2E0833770096EF88 /* FocusFlow.swift in Sources */,

@@ -15,3 +15,8 @@ extension TaskList {
         return NSFetchRequest<TaskList>(entityName: "TaskList")
     }
 }
+
+struct TaskListEntry {
+    var name: String
+    var icon: String
+}
