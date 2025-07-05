@@ -46,6 +46,10 @@
 		18D4BC262E0833770096EF88 /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBDA2E0833770096EF88 /* Inter-ExtraBold.otf */; };
 		18D4BC272E0833770096EF88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBFA2E0833770096EF88 /* Preview Assets.xcassets */; };
 		18D4BC282E0833770096EF88 /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BC032E0833770096EF88 /* ToDoList.xcdatamodeld */; };
+		18D87CEA2E19683700A1376C /* SSDateTimePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 18D87CE92E19683700A1376C /* SSDateTimePicker */; };
+		18D87CEE2E19752400A1376C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D87CED2E19752400A1376C /* Date+Extension.swift */; };
+		18D87CF42E198B2E00A1376C /* CalenderGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D87CF32E198B2E00A1376C /* CalenderGridView.swift */; };
+		18D87CF82E1997B500A1376C /* TasksStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D87CF72E1997B500A1376C /* TasksStatusView.swift */; };
 		18E64E122DD3BB0B0065CCC3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 18E64E112DD3BB0B0065CCC3 /* Lottie */; };
 		215A9C8A23925E6333271DDE /* Pods_helloSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF716B3A1198E072B416CDD /* Pods_helloSwiftUI.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +93,9 @@
 		18D4BBFF2E0833770096EF88 /* TaskRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepo.swift; sourceTree = "<group>"; };
 		18D4BC002E0833770096EF88 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		18D4BC052E0833770096EF88 /* ToDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoList.xcdatamodel; sourceTree = "<group>"; };
+		18D87CED2E19752400A1376C /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		18D87CF32E198B2E00A1376C /* CalenderGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderGridView.swift; sourceTree = "<group>"; };
+		18D87CF72E1997B500A1376C /* TasksStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksStatusView.swift; sourceTree = "<group>"; };
 		4436E74CEDC7FC1336393601 /* Pods-helloSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helloSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		5BF716B3A1198E072B416CDD /* Pods_helloSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_helloSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A66199285FF733AD515331 /* Pods-helloSwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helloSwiftUI.release.xcconfig"; path = "Target Support Files/Pods-helloSwiftUI/Pods-helloSwiftUI.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +108,7 @@
 			files = (
 				182D72282DD2730600F4D25A /* Flow in Frameworks */,
 				215A9C8A23925E6333271DDE /* Pods_helloSwiftUI.framework in Frameworks */,
+				18D87CEA2E19683700A1376C /* SSDateTimePicker in Frameworks */,
 				182D722D2DD280B800F4D25A /* Flow in Frameworks */,
 				18E64E122DD3BB0B0065CCC3 /* Lottie in Frameworks */,
 			);
@@ -200,6 +208,8 @@
 				18D4BBF02E0833770096EF88 /* settingsView.swift */,
 				18D4BBF12E0833770096EF88 /* TaskDetailCell.swift */,
 				18657AE92E0B45440092ACEA /* DashboardGridView.swift */,
+				18D87CF32E198B2E00A1376C /* CalenderGridView.swift */,
+				18D87CF72E1997B500A1376C /* TasksStatusView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -207,7 +217,6 @@
 		18D4BBF62E0833770096EF88 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				18D4BBF32E0833770096EF88 /* ColorExtension.swift */,
 				18D4BBF42E0833770096EF88 /* DataModels.swift */,
 				18D4BBF52E0833770096EF88 /* ThemeManager.swift */,
 			);
@@ -254,6 +263,7 @@
 		18D4BC042E0833770096EF88 /* helloSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				18D87CEC2E19744F00A1376C /* Extensions */,
 				18D4BBD62E0833770096EF88 /* App */,
 				18D4BBE32E0833770096EF88 /* Assets */,
 				18D4BBEB2E0833770096EF88 /* Controllers */,
@@ -265,6 +275,15 @@
 				18D4BBFB2E0833770096EF88 /* Preview Content */,
 			);
 			path = helloSwiftUI;
+			sourceTree = "<group>";
+		};
+		18D87CEC2E19744F00A1376C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18D4BBF32E0833770096EF88 /* ColorExtension.swift */,
+				18D87CED2E19752400A1376C /* Date+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		9BDB1B325426F8383C1A506F /* Pods */ = {
@@ -332,6 +351,7 @@
 			packageReferences = (
 				182D72262DD2730600F4D25A /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 				18E64E102DD3BB0B0065CCC3 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				18D87CE82E19683700A1376C /* XCRemoteSwiftPackageReference "SSDateTimePicker" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 18B298582D900E120039633B /* Products */;
@@ -399,6 +419,7 @@
 				18D4BC092E0833770096EF88 /* TaskModel.swift in Sources */,
 				18D4BC0A2E0833770096EF88 /* settingsView.swift in Sources */,
 				18657AEC2E0B45BC0092ACEA /* TaskListsView.swift in Sources */,
+				18D87CF42E198B2E00A1376C /* CalenderGridView.swift in Sources */,
 				18D4BC0B2E0833770096EF88 /* CalenderVC.swift in Sources */,
 				18D4BC0C2E0833770096EF88 /* TasksVC.swift in Sources */,
 				18657AEA2E0B45440092ACEA /* DashboardGridView.swift in Sources */,
@@ -411,11 +432,13 @@
 				18D4BC132E0833770096EF88 /* ListRepo.swift in Sources */,
 				18D4BC142E0833770096EF88 /* ListToDoItemView.swift in Sources */,
 				18D4BC152E0833770096EF88 /* NoTasksFoundView.swift in Sources */,
+				18D87CF82E1997B500A1376C /* TasksStatusView.swift in Sources */,
 				18D4BC162E0833770096EF88 /* ThemeManager.swift in Sources */,
 				18D4BC172E0833770096EF88 /* ListViewModel.swift in Sources */,
 				18D4BC182E0833770096EF88 /* TaskViewModel.swift in Sources */,
 				18D4BC192E0833770096EF88 /* TaskDetailCell.swift in Sources */,
 				18D4BC1A2E0833770096EF88 /* DataModels.swift in Sources */,
+				18D87CEE2E19752400A1376C /* Date+Extension.swift in Sources */,
 				18D4BC1B2E0833770096EF88 /* SplashVC.swift in Sources */,
 				18D4BC1C2E0833770096EF88 /* TaskListModel.swift in Sources */,
 				18D4BC282E0833770096EF88 /* ToDoList.xcdatamodeld in Sources */,
@@ -645,6 +668,14 @@
 				minimumVersion = 3.0.2;
 			};
 		};
+		18D87CE82E19683700A1376C /* XCRemoteSwiftPackageReference "SSDateTimePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimformSolutionsPvtLtd/SSDateTimePicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		18E64E102DD3BB0B0065CCC3 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -665,6 +696,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 182D72262DD2730600F4D25A /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
 			productName = Flow;
+		};
+		18D87CE92E19683700A1376C /* SSDateTimePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18D87CE82E19683700A1376C /* XCRemoteSwiftPackageReference "SSDateTimePicker" */;
+			productName = SSDateTimePicker;
 		};
 		18E64E112DD3BB0B0065CCC3 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

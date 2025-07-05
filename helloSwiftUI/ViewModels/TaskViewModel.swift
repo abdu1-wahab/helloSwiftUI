@@ -1,4 +1,5 @@
 import Foundation
+import SSDateTimePicker
 
 @MainActor
 final class TaskViewModel: ObservableObject {
@@ -75,4 +76,12 @@ final class TaskViewModel: ObservableObject {
             print("❌ Error loading dashboard counts: \(error)")
         }
     }
+}
+
+struct TaskModel: Identifiable {
+    let id: UUID
+    let title: String
+    let startDate: Date
+    let endDate: Date
+    let isCompleted: Bool
 }

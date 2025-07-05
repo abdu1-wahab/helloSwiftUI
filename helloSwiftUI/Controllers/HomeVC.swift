@@ -34,13 +34,17 @@ struct HomeVC: View {
                     Image("search_Bar")
 
                     // Dashboard Cards
-                    DashboardGridView(
-                        allTasks: taskViewModel.allCount,
-                        today: taskViewModel.todayCount,
-                        completed: taskViewModel.completedCount,
-                        upcoming: taskViewModel.upcomingCount
-                    )
+                    NavigationView {
+                        DashboardGridView(
+                            allTasks: taskViewModel.allCount,
+                            today: taskViewModel.todayCount,
+                            completed: taskViewModel.completedCount,
+                            upcoming: taskViewModel.upcomingCount
+                        )
+                    }
+                    .background(Color.black.ignoresSafeArea())
                     .padding(.horizontal)
+                    
 
                     // List Header
                     HStack {

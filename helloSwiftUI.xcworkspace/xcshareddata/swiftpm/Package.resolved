@@ -1,5 +1,5 @@
 {
-  "originHash" : "5078748e066f87cbf9b0f53a1b313d9debbc4cdc62f8b94230474d70e6f9b567",
+  "originHash" : "440b177646c09b894dcef8705cd3605064ff77197864510f9471342298fcd9dd",
   "pins" : [
     {
       "identity" : "lottie-spm",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "8c6edf4f0fa84fe9c058600a4295eb0c01661c69",
         "version" : "4.5.1"
+      }
+    },
+    {
+      "identity" : "ssdatetimepicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SimformSolutionsPvtLtd/SSDateTimePicker",
+      "state" : {
+        "revision" : "286fbbfd3b33e809f66dff57258cb6b3c507b2af",
+        "version" : "1.0.0"
       }
     },
     {

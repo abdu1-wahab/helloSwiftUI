@@ -1,5 +1,3 @@
-
-
 import SwiftUI
 
 struct DashboardGridView: View {
@@ -10,30 +8,46 @@ struct DashboardGridView: View {
 
     var body: some View {
         LazyHGrid(rows: [GridItem(.fixed(120)), GridItem(.fixed(120))], spacing: 8) {
-            GridToDoCardItemView(
-                title: "All Tasks",
-                imageName: "img_allTasks",
-                count: allTasks,
-                backgroundColor: Color(hex: "#1B1B1D")
-            )
-            GridToDoCardItemView(
-                title: "Today",
-                imageName: "img_today_tasks",
-                count: today,
-                backgroundColor: Color(hex: "#1B1B1D")
-            )
-            GridToDoCardItemView(
-                title: "Completed",
-                imageName: "img_completed_tasks",
-                count: completed,
-                backgroundColor: Color(hex: "#1B1B1D")
-            )
-            GridToDoCardItemView(
-                title: "Upcoming",
-                imageName: "img_calender",
-                count: upcoming,
-                backgroundColor: Color(hex: "#1B1B1D")
-            )
+            
+            // All Tasks
+            NavigationLink(destination: CalenderVC()) {
+                GridToDoCardItemView(
+                    title: "All Tasks",
+                    imageName: "img_allTasks",
+                    count: allTasks,
+                    backgroundColor: Color(hex: "#1B1B1D")
+                )
+            }
+
+            // Today
+            NavigationLink(destination: CalenderVC()) {
+                GridToDoCardItemView(
+                    title: "Today",
+                    imageName: "img_today_tasks",
+                    count: today,
+                    backgroundColor: Color(hex: "#1B1B1D")
+                )
+            }
+
+            // Completed
+            NavigationLink(destination: CalenderVC()) {
+                GridToDoCardItemView(
+                    title: "Completed",
+                    imageName: "img_completed_tasks",
+                    count: completed,
+                    backgroundColor: Color(hex: "#1B1B1D")
+                )
+            }
+
+            // Upcoming
+            NavigationLink(destination: CalenderVC()) {
+                GridToDoCardItemView(
+                    title: "Upcoming",
+                    imageName: "img_calender",
+                    count: upcoming,
+                    backgroundColor: Color(hex: "#1B1B1D")
+                )
+            }
         }
     }
 }

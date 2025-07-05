@@ -1,5 +1,6 @@
 import SwiftUI
 import Foundation
+import SSDateTimePicker
 
 struct AddNewTaskVC: View {
     
@@ -10,6 +11,11 @@ struct AddNewTaskVC: View {
     @State private var endDate = Date()
     @State private var endTime = Date()
     
+    @State private var showStartDatePicker = false
+    @State private var showEndDatePicker = false
+    @State private var showTimePicker = false
+    @State private var showInvalidDateAlert = false
+
     var isFormValid: Bool {
         selectedGroup != nil && !text.trimmingCharacters(in: .whitespaces).isEmpty
     }
@@ -178,6 +184,9 @@ struct AddNewTaskVC: View {
                         Image("img_drop_down")
                     }
                     .padding(15)
+                    .onTapGesture {
+                        showStartDatePicker = true
+                    }
                     
                 }
                 .frame(maxWidth: .infinity)
@@ -203,6 +212,9 @@ struct AddNewTaskVC: View {
                         Image("img_drop_down")
                     }
                     .padding(15)
+                    .onTapGesture {
+                        showEndDatePicker = true
+                    }
                     
                 }
                 .frame(maxWidth: .infinity)
@@ -228,6 +240,9 @@ struct AddNewTaskVC: View {
                         Image("img_drop_down")
                     }
                     .padding(15)
+                    .onTapGesture {
+                        showTimePicker = true
+                    }
                     
                 }
                 .frame(maxWidth: .infinity)
@@ -250,6 +265,38 @@ struct AddNewTaskVC: View {
                 .disabled(!isFormValid)
             }
             .padding(.horizontal, 5)
+            
+            .alert("Invalid End Date", isPresented: $showInvalidDateAlert) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("End date can't be earlier than the start date.")
+            }
+            SSDatePicker(showDatePicker: $showStartDatePicker)
+                .selectedDate(startDate)
+                .onDateSelection { newStart in
+                    startDate = newStart
+                    if endDate < newStart {
+                        endDate = newStart
+                    }
+                }
+            
+            // 🗓 End Date Picker
+            SSDatePicker(showDatePicker: $showEndDatePicker)
+                .selectedDate(endDate)
+                .onDateSelection { newEnd in
+                    if newEnd >= startDate {
+                        endDate = newEnd
+                    } else {
+                        showInvalidDateAlert = true
+                    }
+                }
+            
+            // ⏰ Time Picker
+            SSTimePicker(showTimePicker: $showTimePicker)
+                .selectedTime(endTime)
+                .onTimeSelection { time in
+                    endTime = time
+                }
             
         }
         .onAppear {
