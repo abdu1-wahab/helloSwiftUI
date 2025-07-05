@@ -52,6 +52,17 @@ final class TaskViewModel: ObservableObject {
             print("❌ Error toggling: \(error)")
         }
     }
+    
+    func deleteTask(_ task: TaskItem) async {
+        do {
+            try await repository.delete(task)
+            if let list = task.lists {
+                await loadTasks(for: list)
+            }
+        } catch {
+            print("❌ Error deleting task: \(error)")
+        }
+    }
 
     // Load global dashboard stats
     func loadDashboardCounts() async {

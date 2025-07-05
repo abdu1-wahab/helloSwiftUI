@@ -5,6 +5,7 @@ struct TasksVC: View {
     let taskList: TaskList
 
     @StateObject private var viewModel = TaskViewModel(repository: TaskRepository())
+    @State private var searchText = ""
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -28,7 +29,7 @@ struct TasksVC: View {
 
                     Spacer()
 
-                    Text(taskList.name ?? "Tasks")
+                    Text(taskList.name)
                         .font(.system(size: 18))
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
@@ -47,26 +48,27 @@ struct TasksVC: View {
                 if viewModel.tasks.isEmpty {
                     NoTasksFoundView()
                 } else {
-                    ScrollView {
-                        VStack(spacing: 10) {
-                            ForEach(viewModel.tasks, id: \.self) { task in
-                                HStack {
-                                    Text(task.title ?? "")
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 14))
-                                    Spacer()
-                                    if task.isCompleted {
-                                        Image(systemName: "checkmark.circle.fill")
-                                            .foregroundColor(.green)
-                                    }
+                    List {
+                        ForEach(filteredTasks, id: \.self) { task in
+                            TaskDetailCell(task: task) {
+                                Task {
+                                    await viewModel.toggleTask(task)
                                 }
-                                .padding()
-                                .background(Color(hex: "#1B1B1D"))
-                                .cornerRadius(10)
+                            }
+                            .listRowBackground(Color.clear)
+                        }
+                        .onDelete { indexSet in
+                            for index in indexSet {
+                                let task = filteredTasks[index]
+                                Task {
+                                    await viewModel.deleteTask(task)
+                                }
                             }
                         }
-                        .padding()
                     }
+                    .listStyle(.plain)
+                    .searchable(text: $searchText)
+                    .background(Color.black)
                 }
 
                 Spacer()
@@ -97,6 +99,26 @@ struct TasksVC: View {
             await viewModel.loadTasks(for: taskList)
         }
     }
+    
+    private var filteredTasks: [TaskItem] {
+        if searchText.isEmpty {
+            return viewModel.tasks
+        } else {
+            return viewModel.tasks.filter {
+                $0.title.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
+    
+    func deleteTask(at offsets: IndexSet) {
+        Task {
+            for index in offsets {
+                let taskToDelete = viewModel.tasks[index]
+                try? await viewModel.deleteTask(taskToDelete)
+            }
+        }
+    }
+
 }
 
 extension UINavigationController {
@@ -107,6 +129,13 @@ extension UINavigationController {
 }
 
 
-//#Preview {
-//    TasksVC(taskList: TaskLi)
-//}
+#Preview {
+    let context = CoreDataManager.shared.context
+    let mockList = TaskList(context: context)
+    mockList.name = "Mock List"
+    mockList.id = UUID()
+    mockList.createdAt = Date()
+    mockList.iconName = "checkmark"
+
+    return TasksVC(taskList: mockList)
+}
