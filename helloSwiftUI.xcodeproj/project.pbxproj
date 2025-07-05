@@ -217,8 +217,8 @@
 		18D4BBF92E0833770096EF88 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				18D4BBF72E0833770096EF88 /* TaskListModel.swift */,
 				18D4BBF82E0833770096EF88 /* TaskModel.swift */,
+				18D4BBF72E0833770096EF88 /* TaskListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

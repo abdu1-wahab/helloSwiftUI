@@ -1,4 +1,5 @@
 import SwiftUI
+import Foundation
 
 struct AddNewTaskVC: View {
     
@@ -9,10 +10,15 @@ struct AddNewTaskVC: View {
     @State private var endDate = Date()
     @State private var endTime = Date()
     
-    @State private var selectedGroup = "Task Group"
+    var isFormValid: Bool {
+        selectedGroup != nil && !text.trimmingCharacters(in: .whitespaces).isEmpty
+    }
+    
+    @State private var selectedGroup:TaskList?
     @State private var isPickerPresented = false
     
-    let taskGroups = ["Task Group", "Work", "Personal", "Shopping"]
+    @ObservedObject var listViewModel: TaskListViewModel
+    @ObservedObject var taskViewModel: TaskViewModel
     
     func formattedDate(_ date: Date) -> String {
         let formatter = DateFormatter()
@@ -70,9 +76,9 @@ struct AddNewTaskVC: View {
                             .fontWeight(.regular)
                             .foregroundColor(Color(hex: "7C7C7C"))
                         
-                        Picker("", selection: $selectedGroup) {
-                            ForEach(taskGroups, id: \.self) { group in
-                                Text(group)
+                        Picker("Select Group", selection: $selectedGroup) {
+                            ForEach(listViewModel.lists, id: \.self) { list in
+                                Text(list.name).tag(Optional(list))
                             }
                         }
                         .pickerStyle(.menu)
@@ -231,9 +237,7 @@ struct AddNewTaskVC: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    print("Button Tapped")
-                }) {
+                Button(action: saveTask) {
                     Text("Add New Task")
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundColor(.white)
@@ -243,13 +247,50 @@ struct AddNewTaskVC: View {
                         .cornerRadius(14)
                         .padding(.horizontal, 22)
                 }
+                .disabled(!isFormValid)
             }
             .padding(.horizontal, 5)
             
         }
+        .onAppear {
+            if selectedGroup == nil, let firstList = listViewModel.lists.first {
+                selectedGroup = firstList
+            }
+        }
     }
+    
+    private func saveTask() {
+        guard let selectedList = selectedGroup else { return }
+
+        Task {
+            await taskViewModel.addTask(
+                title: text,
+                desc: textDescription,
+                list: selectedList,
+                dueDate: endDate,
+                endTime: endTime
+            )
+            dismiss()
+        }
+    }
+
+
 }
 
 #Preview {
-    AddNewTaskVC()
+    let mockList = TaskList(context: CoreDataManager.shared.context)
+    mockList.id = UUID()
+    mockList.name = "Sample List"
+    mockList.iconName = "star"
+    mockList.createdAt = Date()
+    
+    let mockListVM = TaskListViewModel(repository: TaskListRepository())
+    mockListVM.lists = [mockList]
+    
+    let mockTaskVM = TaskViewModel(repository: TaskRepository())
+
+    return AddNewTaskVC(
+        listViewModel: mockListVM,
+        taskViewModel: mockTaskVM
+    )
 }

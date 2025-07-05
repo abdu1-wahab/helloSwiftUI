@@ -7,7 +7,7 @@ class TaskList: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var iconName: String
     @NSManaged var createdAt: Date
-    @NSManaged var tasks: Set<Task>?
+    @NSManaged var tasks: Set<TaskItem>?
 }
 
 extension TaskList {
