@@ -5,12 +5,12 @@ struct DashboardGridView: View {
     let today: Int
     let completed: Int
     let upcoming: Int
-
+    let taskViewModel: TaskViewModel
     var body: some View {
         LazyHGrid(rows: [GridItem(.fixed(120)), GridItem(.fixed(120))], spacing: 8) {
             
             // All Tasks
-            NavigationLink(destination: CalenderVC()) {
+            NavigationLink(destination: CalenderVC(taskViewModel: taskViewModel)) {
                 GridToDoCardItemView(
                     title: "All Tasks",
                     imageName: "img_allTasks",
@@ -20,7 +20,7 @@ struct DashboardGridView: View {
             }
 
             // Today
-            NavigationLink(destination: CalenderVC()) {
+            NavigationLink(destination: CalenderVC(taskViewModel: taskViewModel)) {
                 GridToDoCardItemView(
                     title: "Today",
                     imageName: "img_today_tasks",
@@ -30,7 +30,7 @@ struct DashboardGridView: View {
             }
 
             // Completed
-            NavigationLink(destination: CalenderVC()) {
+            NavigationLink(destination: CalenderVC(taskViewModel: taskViewModel)) {
                 GridToDoCardItemView(
                     title: "Completed",
                     imageName: "img_completed_tasks",
@@ -40,7 +40,7 @@ struct DashboardGridView: View {
             }
 
             // Upcoming
-            NavigationLink(destination: CalenderVC()) {
+            NavigationLink(destination: CalenderVC(taskViewModel: taskViewModel)) {
                 GridToDoCardItemView(
                     title: "Upcoming",
                     imageName: "img_calender",
@@ -53,5 +53,5 @@ struct DashboardGridView: View {
 }
 
 #Preview {
-    DashboardGridView(allTasks: 5, today: 3, completed: 2, upcoming: 2)
+    DashboardGridView(allTasks: 5, today: 3, completed: 2, upcoming: 2, taskViewModel: TaskViewModel(repository: TaskRepository()))
 }

@@ -10,6 +10,8 @@ protocol TaskRepositoryProtocol {
     func countAllTasks() throws -> Int
     func countCompletedTasks() throws -> Int
     func countTasksDueToday() throws -> Int
+    func fetchTaskStatusByDate(in month: Date) throws -> [TaskDaySummary]
+    func fetchTasks(for date: Date) async throws -> [TaskItem]
     func countUpcomingTasks() throws -> Int
 }
 
@@ -68,4 +70,36 @@ final class TaskRepository: TaskRepositoryProtocol {
         request.predicate = NSPredicate(format: "dueDate != nil AND isCompleted == NO")
         return try context.count(for: request)
     }
+    
+    func fetchTaskStatusByDate(in month: Date) throws -> [TaskDaySummary] {
+        let calendar = Calendar.current
+        let startOfMonth = calendar.startOfMonth(for: month)
+        let endOfMonth = calendar.endOfMonth(for: month)
+        
+        let request: NSFetchRequest<TaskItem> = TaskItem.fetchRequest()
+        request.predicate = NSPredicate(format: "dueDate >= %@ AND dueDate < %@", startOfMonth as NSDate, endOfMonth as NSDate)
+
+        let tasks = try context.fetch(request)
+
+        // Group tasks by day
+        let grouped = Dictionary(grouping: tasks, by: { calendar.startOfDay(for: $0.dueDate ?? Date()) })
+
+        return grouped.map { (date, tasks) in
+            let hasCompleted = tasks.contains(where: { $0.isCompleted })
+            let hasIncomplete = tasks.contains(where: { !$0.isCompleted })
+            return TaskDaySummary(date: date, hasCompleted: hasCompleted, hasIncomplete: hasIncomplete)
+        }
+    }
+    
+    func fetchTasks(for date: Date) async throws -> [TaskItem] {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+
+        let request: NSFetchRequest<TaskItem> = TaskItem.fetchRequest()
+        request.predicate = NSPredicate(format: "dueDate >= %@ AND dueDate < %@", startOfDay as NSDate, endOfDay as NSDate)
+
+        return try context.fetch(request)
+    }
+
 }

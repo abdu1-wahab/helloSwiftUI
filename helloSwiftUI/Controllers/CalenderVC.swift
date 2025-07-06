@@ -4,7 +4,7 @@ import SwiftUI
 struct CalenderVC: View {
     
     @Environment(\.dismiss) var dismiss
-    //@ObservedObject var taskViewModel: TaskViewModel
+    @ObservedObject var taskViewModel: TaskViewModel
     
     
     var currentDate: Date {
@@ -95,7 +95,7 @@ struct CalenderVC: View {
                         ForEach(-120...120, id: \.self) { offset in
                             CalendarGridView(
                                 referenceDate: Calendar.current.date(byAdding: .month, value: offset, to: Date())!,
-                                selectedDate: $selectedDate
+                                selectedDate: $selectedDate, taskSummaries: taskViewModel.taskDaySummaries
                             )
                                 .tag(offset)
                         }
@@ -110,14 +110,14 @@ struct CalenderVC: View {
                 .cornerRadius(16)
                 
                 HStack {
-                    Text("Mon,June 2,2025")
+                    Text(selectedDate.formattedDateWithWeekDay)
                         .font(.system(size: 14))
                         .fontWeight(.medium)
                         .foregroundColor(.white)
                     Spacer()
                     
                     Image("tasks_status_img")
-                    Text("3 tasks")
+                    Text("\(taskViewModel.tasksForSelectedDate.count) tasks")
                         .font(.system(size: 12))
                         .fontWeight(.medium)
                         .foregroundColor(.white)
@@ -126,11 +126,32 @@ struct CalenderVC: View {
                 .padding(.horizontal, 10)
                 .padding(.top, 8)
                 
-                
+                List(taskViewModel.tasksForSelectedDate, id: \.id) { task in
+                    TasksStatusView(title: task.title, startDate: task.createdAt, endDate: task.dueTime ?? Date(), isCompleted: task.isCompleted)
+                }
+                .listStyle(PlainListStyle())
+                .listRowSeparator(.hidden)
+                .background(Color.clear)
                 
                 Spacer()
             }
         }
+        .onAppear {
+            Task {
+                await taskViewModel.loadTaskSummaries(for: currentDate)
+            }
+        }
+        .onChange(of: currentMonthOffset) {
+            Task {
+                await taskViewModel.loadTaskSummaries(for: currentDate)
+            }
+        }
+        .onChange(of: selectedDate) { _,newDate in
+            Task {
+                await taskViewModel.loadTasks(for: newDate)
+            }
+        }
+
     }
     
     private func swipeToNextMonth() {
@@ -148,5 +169,5 @@ struct CalenderVC: View {
 }
 
 #Preview {
-    CalenderVC()
+    CalenderVC(taskViewModel: TaskViewModel(repository: TaskRepository()))
 }

@@ -39,7 +39,7 @@ struct HomeVC: View {
                             allTasks: taskViewModel.allCount,
                             today: taskViewModel.todayCount,
                             completed: taskViewModel.completedCount,
-                            upcoming: taskViewModel.upcomingCount
+                            upcoming: taskViewModel.upcomingCount, taskViewModel: taskViewModel
                         )
                     }
                     .background(Color.black.ignoresSafeArea())

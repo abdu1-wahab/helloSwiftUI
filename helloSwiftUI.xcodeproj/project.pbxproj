@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1814060F2E1ACCAD001B05D6 /* TaskSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814060E2E1ACCAD001B05D6 /* TaskSummaryModel.swift */; };
+		181406112E1AE268001B05D6 /* NotifcationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181406102E1AE268001B05D6 /* NotifcationManager.swift */; };
 		182D72282DD2730600F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D72272DD2730600F4D25A /* Flow */; };
 		182D722D2DD280B800F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D722C2DD280B800F4D25A /* Flow */; };
 		18657AEA2E0B45440092ACEA /* DashboardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18657AE92E0B45440092ACEA /* DashboardGridView.swift */; };
@@ -21,7 +23,7 @@
 		18D4BC0D2E0833770096EF88 /* ResizableGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBEF2E0833770096EF88 /* ResizableGridCell.swift */; };
 		18D4BC0E2E0833770096EF88 /* TaskRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBFF2E0833770096EF88 /* TaskRepo.swift */; };
 		18D4BC0F2E0833770096EF88 /* FocusFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBD52E0833770096EF88 /* FocusFlow.swift */; };
-		18D4BC102E0833770096EF88 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBF32E0833770096EF88 /* ColorExtension.swift */; };
+		18D4BC102E0833770096EF88 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBF32E0833770096EF88 /* Color+Extension.swift */; };
 		18D4BC112E0833770096EF88 /* GridToDoCardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBEC2E0833770096EF88 /* GridToDoCardItemView.swift */; };
 		18D4BC122E0833770096EF88 /* AddNewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE42E0833770096EF88 /* AddNewTaskVC.swift */; };
 		18D4BC132E0833770096EF88 /* ListRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBFD2E0833770096EF88 /* ListRepo.swift */; };
@@ -55,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1814060E2E1ACCAD001B05D6 /* TaskSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSummaryModel.swift; sourceTree = "<group>"; };
+		181406102E1AE268001B05D6 /* NotifcationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifcationManager.swift; sourceTree = "<group>"; };
 		18657AE92E0B45440092ACEA /* DashboardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGridView.swift; sourceTree = "<group>"; };
 		18657AEB2E0B45B70092ACEA /* TaskListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListsView.swift; sourceTree = "<group>"; };
 		18B298572D900E120039633B /* helloSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helloSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +85,7 @@
 		18D4BBEF2E0833770096EF88 /* ResizableGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizableGridCell.swift; sourceTree = "<group>"; };
 		18D4BBF02E0833770096EF88 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		18D4BBF12E0833770096EF88 /* TaskDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailCell.swift; sourceTree = "<group>"; };
-		18D4BBF32E0833770096EF88 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		18D4BBF32E0833770096EF88 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		18D4BBF42E0833770096EF88 /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		18D4BBF52E0833770096EF88 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		18D4BBF72E0833770096EF88 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 			children = (
 				18D4BBF42E0833770096EF88 /* DataModels.swift */,
 				18D4BBF52E0833770096EF88 /* ThemeManager.swift */,
+				181406102E1AE268001B05D6 /* NotifcationManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 			children = (
 				18D4BBF82E0833770096EF88 /* TaskModel.swift */,
 				18D4BBF72E0833770096EF88 /* TaskListModel.swift */,
+				1814060E2E1ACCAD001B05D6 /* TaskSummaryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,7 +286,7 @@
 		18D87CEC2E19744F00A1376C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				18D4BBF32E0833770096EF88 /* ColorExtension.swift */,
+				18D4BBF32E0833770096EF88 /* Color+Extension.swift */,
 				18D87CED2E19752400A1376C /* Date+Extension.swift */,
 			);
 			path = Extensions;
@@ -416,6 +422,7 @@
 				18D4BC062E0833770096EF88 /* OnboardingVC.swift in Sources */,
 				18D4BC072E0833770096EF88 /* SettingsVC.swift in Sources */,
 				18D4BC082E0833770096EF88 /* HomeVC.swift in Sources */,
+				1814060F2E1ACCAD001B05D6 /* TaskSummaryModel.swift in Sources */,
 				18D4BC092E0833770096EF88 /* TaskModel.swift in Sources */,
 				18D4BC0A2E0833770096EF88 /* settingsView.swift in Sources */,
 				18657AEC2E0B45BC0092ACEA /* TaskListsView.swift in Sources */,
@@ -424,9 +431,10 @@
 				18D4BC0C2E0833770096EF88 /* TasksVC.swift in Sources */,
 				18657AEA2E0B45440092ACEA /* DashboardGridView.swift in Sources */,
 				18D4BC0D2E0833770096EF88 /* ResizableGridCell.swift in Sources */,
+				181406112E1AE268001B05D6 /* NotifcationManager.swift in Sources */,
 				18D4BC0E2E0833770096EF88 /* TaskRepo.swift in Sources */,
 				18D4BC0F2E0833770096EF88 /* FocusFlow.swift in Sources */,
-				18D4BC102E0833770096EF88 /* ColorExtension.swift in Sources */,
+				18D4BC102E0833770096EF88 /* Color+Extension.swift in Sources */,
 				18D4BC112E0833770096EF88 /* GridToDoCardItemView.swift in Sources */,
 				18D4BC122E0833770096EF88 /* AddNewTaskVC.swift in Sources */,
 				18D4BC132E0833770096EF88 /* ListRepo.swift in Sources */,

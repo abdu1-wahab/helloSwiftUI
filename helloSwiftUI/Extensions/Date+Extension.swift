@@ -82,10 +82,32 @@ extension Date {
         }
 
     static var capitalizedShortWeekdays: [String] {
-            var weekdays = Calendar.current.shortWeekdaySymbols  // ["Sun", "Mon", ...]
-            let firstWeekdayIndex = Calendar.current.firstWeekday - 1
-            // Rotate to start from firstWeekdayIndex (e.g., Monday if firstWeekday = 2)
-            let reordered = Array(weekdays[firstWeekdayIndex...] + weekdays[..<firstWeekdayIndex])
-            return reordered
+        let weekdays = Calendar.current.shortWeekdaySymbols
+        let firstWeekdayIndex = Calendar.current.firstWeekday - 1
+        let reordered = Array(weekdays[firstWeekdayIndex...] + weekdays[..<firstWeekdayIndex])
+        return reordered
+    }
+    
+    var formattedDateWithWeekDay: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMMM d, yyyy"
+        return formatter.string(from: self)
+    }
+}
+
+extension Calendar {
+    func startOfMonth(for date: Date) -> Date {
+        let components = dateComponents([.year, .month], from: date)
+        return self.date(from: components)!
+    }
+
+    func endOfMonth(for date: Date) -> Date {
+        guard let start = self.date(from: dateComponents([.year, .month], from: date)) else {
+            fatalError("Could not get start of month")
         }
+        var components = DateComponents()
+        components.month = 1
+        components.second = -1
+        return self.date(byAdding: components, to: start)!
+    }
 }
