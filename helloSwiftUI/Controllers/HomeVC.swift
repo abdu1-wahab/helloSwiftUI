@@ -14,21 +14,21 @@ struct HomeVC: View {
 
                 VStack {
                     // Top Bar
-                    HStack {
-                        Spacer()
-                        Text("To Do List")
-                            .font(.system(size: 18))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                        Spacer()
-                        Button {
-                            navigationPath.append(.settings)
-                        } label: {
-                            Image("img_settings_icon")
-                        }
-                    }
-                    .padding(.horizontal, 8)
-                    .padding(.top, 20)
+//                    HStack {
+//                        Spacer()
+//                        Text("To Do List")
+//                            .font(.system(size: 18))
+//                            .fontWeight(.semibold)
+//                            .foregroundColor(.white)
+//                        Spacer()
+//                        Button {
+//                            navigationPath.append(.settings)
+//                        } label: {
+//                            Image("img_settings_icon")
+//                        }
+//                    }
+//                    .padding(.horizontal, 8)
+//                    .padding(.top, 20)
 
                     // Search Bar
                     Image("search_Bar")
@@ -104,6 +104,18 @@ struct HomeVC: View {
                     TasksVC(taskList: list)
                 }
             }
+            .navigationTitle("To Do List")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        navigationPath.append(.settings)
+                    } label: {
+                        Image("img_settings_icon")
+                    }
+                }
+            }
+
             .task {
                 await listViewModel.loadLists()
                 await taskViewModel.loadDashboardCounts()

@@ -336,8 +336,10 @@ struct AddNewTaskVC: View {
     
     let mockTaskVM = TaskViewModel(repository: TaskRepository())
 
-    return AddNewTaskVC(
-        listViewModel: mockListVM,
-        taskViewModel: mockTaskVM
-    )
+    return NavigationStack {
+        AddNewTaskVC(
+            listViewModel: mockListVM,
+            taskViewModel: mockTaskVM
+        )
+    }
 }

@@ -9,43 +9,17 @@ struct SettingsVC: View {
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
+            
             VStack(spacing: 0) {
                 
-                // top bar
-                HStack {
-                    Button(action: {
-                        dismiss()
-                    })  {
-                        Image(systemName: "arrow.backward")
-                            .foregroundColor(Color(hex: "7C7C7C"))
-                            .frame(width: 4, height: 4)
-                            .padding()
-                            .background(Color(hex: "#1B1B1D"))
-                            .clipShape(Circle())
-                            .shadow(radius: 1)
-                    }
-                    
-                    Spacer()
-                    
-                    Text("Setting")
-                        .font(.system(size: 18))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                    
-                    Spacer()
-                    Color.clear.frame(width: 48, height: 48)
-                }
-                .padding(.vertical, 10)
-                
-                // appearence setting
+                // Appearance Setting
                 VStack {
                     HStack {
                         Image("image_dark_appearence")
                         Text("Appearance")
                             .font(.system(size: 14))
-                            .fontWeight(.regular    )
+                            .fontWeight(.regular)
                             .foregroundColor(Color(hex: "7E7E7E"))
-                        
                         Spacer()
                     }
                     
@@ -70,6 +44,7 @@ struct SettingsVC: View {
                         }
                         .padding()
                         .padding(.horizontal, 10)
+                        
                         Button(action: {
                             themeManager.currentTheme = .dark
                         }) {
@@ -82,7 +57,6 @@ struct SettingsVC: View {
                                         ? Color(hex: "3B82F6")
                                         : Color(hex: "7E7E7E")
                                     )
-                                
                             }
                         }
                         .padding(10)
@@ -95,7 +69,7 @@ struct SettingsVC: View {
                 .background(Color(hex: "1B1B1D"))
                 .cornerRadius(12)
                 
-                // remaining settings
+                // Remaining settings
                 List {
                     ForEach($viewModel.items) { $item in
                         SettingsRowView(item: $item)
@@ -109,16 +83,28 @@ struct SettingsVC: View {
                 .background(Color.black.ignoresSafeArea())
                 .padding(.top, 20)
                 .scrollIndicators(.hidden)
-                
             }
             .padding(.horizontal, 10)
-            
+        }
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "chevron.backward")
+                        .foregroundColor(Color(hex: "7C7C7C"))
+                }
+            }
         }
         .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    SettingsVC()
-        .environmentObject(ThemeManager())
+    NavigationStack {
+        SettingsVC()
+            .environmentObject(ThemeManager())
+    }
 }

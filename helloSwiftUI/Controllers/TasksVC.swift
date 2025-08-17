@@ -14,33 +14,33 @@ struct TasksVC: View {
 
             VStack(spacing: 0) {
                 // Top Bar
-                HStack {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "arrow.backward")
-                            .foregroundColor(Color(hex: "7C7C7C"))
-                            .frame(width: 4, height: 4)
-                            .padding()
-                            .background(Color(hex: "#1B1B1D"))
-                            .clipShape(Circle())
-                            .shadow(radius: 1)
-                    }
-
-                    Spacer()
-
-                    Text(taskList.name)
-                        .font(.system(size: 18))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-
-                    Spacer()
-
-                    // Spacer to balance layout
-                    Color.clear.frame(width: 48, height: 48)
-                }
-                .padding(.horizontal, 8)
-                .padding(.top, 20)
+//                HStack {
+//                    Button {
+//                        dismiss()
+//                    } label: {
+//                        Image(systemName: "arrow.backward")
+//                            .foregroundColor(Color(hex: "7C7C7C"))
+//                            .frame(width: 4, height: 4)
+//                            .padding()
+//                            .background(Color(hex: "#1B1B1D"))
+//                            .clipShape(Circle())
+//                            .shadow(radius: 1)
+//                    }
+//
+//                    Spacer()
+//
+//                    Text(taskList.name)
+//                        .font(.system(size: 18))
+//                        .fontWeight(.semibold)
+//                        .foregroundColor(.white)
+//
+//                    Spacer()
+//
+//                    // Spacer to balance layout
+//                    Color.clear.frame(width: 48, height: 48)
+//                }
+//                .padding(.horizontal, 8)
+//                .padding(.top, 20)
 
                 Spacer()
 
@@ -94,6 +94,24 @@ struct TasksVC: View {
                 }
             }
         }
+        .navigationTitle("Add Task")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "arrow.backward")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 14, height: 14)
+                        .background(Color(hex: "#1B1B1D"))
+                        .clipShape(Circle())
+                        .frame(width: 36, height: 36)
+                        .shadow(radius: 1)
+                }
+            }
+        }
         .navigationBarBackButtonHidden(true)
         .task {
             await viewModel.loadTasks(for: taskList)
@@ -137,5 +155,7 @@ extension UINavigationController {
     mockList.createdAt = Date()
     mockList.iconName = "checkmark"
 
-    return TasksVC(taskList: mockList)
+    return  NavigationStack {
+        TasksVC(taskList: mockList)
+    }
 }

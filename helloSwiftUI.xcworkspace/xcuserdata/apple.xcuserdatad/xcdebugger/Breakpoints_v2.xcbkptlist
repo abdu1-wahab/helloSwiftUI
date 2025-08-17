@@ -3,22 +3,4 @@
    uuid = "5BE4C226-E8AE-49C7-8DA0-2A97B84720B2"
    type = "0"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7D047838-69BA-48C7-8675-FC0DF03881EF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "helloSwiftUI/Controllers/SettingsVC.swift"
-            startingColumnNumber = "25"
-            endingColumnNumber = "25"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

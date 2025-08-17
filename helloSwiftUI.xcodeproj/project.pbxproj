@@ -13,6 +13,7 @@
 		182D722D2DD280B800F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D722C2DD280B800F4D25A /* Flow */; };
 		18657AEA2E0B45440092ACEA /* DashboardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18657AE92E0B45440092ACEA /* DashboardGridView.swift */; };
 		18657AEC2E0B45BC0092ACEA /* TaskListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18657AEB2E0B45B70092ACEA /* TaskListsView.swift */; };
+		189A17662E5063E700DA19CF /* PremiumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A17652E5063E700DA19CF /* PremiumVC.swift */; };
 		18D4BC062E0833770096EF88 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE72E0833770096EF88 /* OnboardingVC.swift */; };
 		18D4BC072E0833770096EF88 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE82E0833770096EF88 /* SettingsVC.swift */; };
 		18D4BC082E0833770096EF88 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE62E0833770096EF88 /* HomeVC.swift */; };
@@ -61,6 +62,7 @@
 		181406102E1AE268001B05D6 /* NotifcationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifcationManager.swift; sourceTree = "<group>"; };
 		18657AE92E0B45440092ACEA /* DashboardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGridView.swift; sourceTree = "<group>"; };
 		18657AEB2E0B45B70092ACEA /* TaskListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListsView.swift; sourceTree = "<group>"; };
+		189A17652E5063E700DA19CF /* PremiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumVC.swift; sourceTree = "<group>"; };
 		18B298572D900E120039633B /* helloSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helloSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4BBD52E0833770096EF88 /* FocusFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusFlow.swift; sourceTree = "<group>"; };
 		18D4BBD72E0833770096EF88 /* to_do.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = to_do.json; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				18D4BBE82E0833770096EF88 /* SettingsVC.swift */,
 				18D4BBE92E0833770096EF88 /* SplashVC.swift */,
 				18D4BBEA2E0833770096EF88 /* TasksVC.swift */,
+				189A17652E5063E700DA19CF /* PremiumVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				18D4BC0E2E0833770096EF88 /* TaskRepo.swift in Sources */,
 				18D4BC0F2E0833770096EF88 /* FocusFlow.swift in Sources */,
 				18D4BC102E0833770096EF88 /* Color+Extension.swift in Sources */,
+				189A17662E5063E700DA19CF /* PremiumVC.swift in Sources */,
 				18D4BC112E0833770096EF88 /* GridToDoCardItemView.swift in Sources */,
 				18D4BC122E0833770096EF88 /* AddNewTaskVC.swift in Sources */,
 				18D4BC132E0833770096EF88 /* ListRepo.swift in Sources */,
