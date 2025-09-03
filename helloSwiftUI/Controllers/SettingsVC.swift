@@ -5,7 +5,7 @@ struct SettingsVC: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = SettingsViewModel()
     @EnvironmentObject var themeManager: ThemeManager
-    
+    @State private var showPremium = false
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
@@ -69,6 +69,14 @@ struct SettingsVC: View {
                 .background(Color(hex: "1B1B1D"))
                 .cornerRadius(12)
                 
+                Button(action: {
+                    showPremium = true
+                }) {
+                    Text("Dark Mode")
+                        .font(.system(size: 10, weight: .regular))
+                        .foregroundColor(.white)
+                }
+                
                 // Remaining settings
                 List {
                     ForEach($viewModel.items) { $item in
@@ -99,6 +107,9 @@ struct SettingsVC: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .navigationDestination(isPresented: $showPremium) {
+                PremiumVC()
+        }
     }
 }
 

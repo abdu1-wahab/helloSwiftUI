@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		1814060F2E1ACCAD001B05D6 /* TaskSummaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814060E2E1ACCAD001B05D6 /* TaskSummaryModel.swift */; };
 		181406112E1AE268001B05D6 /* NotifcationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181406102E1AE268001B05D6 /* NotifcationManager.swift */; };
+		182C707B2E68CECE007A9575 /* PremiumFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C707A2E68CECE007A9575 /* PremiumFeatureView.swift */; };
 		182D72282DD2730600F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D72272DD2730600F4D25A /* Flow */; };
 		182D722D2DD280B800F4D25A /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 182D722C2DD280B800F4D25A /* Flow */; };
 		18657AEA2E0B45440092ACEA /* DashboardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18657AE92E0B45440092ACEA /* DashboardGridView.swift */; };
 		18657AEC2E0B45BC0092ACEA /* TaskListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18657AEB2E0B45B70092ACEA /* TaskListsView.swift */; };
 		189A17662E5063E700DA19CF /* PremiumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A17652E5063E700DA19CF /* PremiumVC.swift */; };
+		189A17682E51CC1A00DA19CF /* AddNewListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A17672E51CC1A00DA19CF /* AddNewListVC.swift */; };
 		18D4BC062E0833770096EF88 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE72E0833770096EF88 /* OnboardingVC.swift */; };
 		18D4BC072E0833770096EF88 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE82E0833770096EF88 /* SettingsVC.swift */; };
 		18D4BC082E0833770096EF88 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBE62E0833770096EF88 /* HomeVC.swift */; };
@@ -39,14 +41,12 @@
 		18D4BC1C2E0833770096EF88 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBF72E0833770096EF88 /* TaskListModel.swift */; };
 		18D4BC1D2E0833770096EF88 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BBFC2E0833770096EF88 /* CoreDataManager.swift */; };
 		18D4BC1E2E0833770096EF88 /* Inter-Light-BETA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBDC2E0833770096EF88 /* Inter-Light-BETA.otf */; };
-		18D4BC1F2E0833770096EF88 /* Inter-ExtraLight-BETA.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBDB2E0833770096EF88 /* Inter-ExtraLight-BETA.otf */; };
 		18D4BC202E0833770096EF88 /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBDD2E0833770096EF88 /* Inter-Medium.otf */; };
 		18D4BC212E0833770096EF88 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBDE2E0833770096EF88 /* Inter-Regular.otf */; };
 		18D4BC222E0833770096EF88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBE22E0833770096EF88 /* Assets.xcassets */; };
 		18D4BC232E0833770096EF88 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBDF2E0833770096EF88 /* Inter-SemiBold.otf */; };
 		18D4BC242E0833770096EF88 /* to_do.json in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBD72E0833770096EF88 /* to_do.json */; };
 		18D4BC252E0833770096EF88 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBD92E0833770096EF88 /* Inter-Bold.otf */; };
-		18D4BC262E0833770096EF88 /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBDA2E0833770096EF88 /* Inter-ExtraBold.otf */; };
 		18D4BC272E0833770096EF88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D4BBFA2E0833770096EF88 /* Preview Assets.xcassets */; };
 		18D4BC282E0833770096EF88 /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18D4BC032E0833770096EF88 /* ToDoList.xcdatamodeld */; };
 		18D87CEA2E19683700A1376C /* SSDateTimePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 18D87CE92E19683700A1376C /* SSDateTimePicker */; };
@@ -60,15 +60,15 @@
 /* Begin PBXFileReference section */
 		1814060E2E1ACCAD001B05D6 /* TaskSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSummaryModel.swift; sourceTree = "<group>"; };
 		181406102E1AE268001B05D6 /* NotifcationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifcationManager.swift; sourceTree = "<group>"; };
+		182C707A2E68CECE007A9575 /* PremiumFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumFeatureView.swift; sourceTree = "<group>"; };
 		18657AE92E0B45440092ACEA /* DashboardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGridView.swift; sourceTree = "<group>"; };
 		18657AEB2E0B45B70092ACEA /* TaskListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListsView.swift; sourceTree = "<group>"; };
 		189A17652E5063E700DA19CF /* PremiumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumVC.swift; sourceTree = "<group>"; };
+		189A17672E51CC1A00DA19CF /* AddNewListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListVC.swift; sourceTree = "<group>"; };
 		18B298572D900E120039633B /* helloSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helloSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4BBD52E0833770096EF88 /* FocusFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusFlow.swift; sourceTree = "<group>"; };
 		18D4BBD72E0833770096EF88 /* to_do.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = to_do.json; sourceTree = "<group>"; };
 		18D4BBD92E0833770096EF88 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
-		18D4BBDA2E0833770096EF88 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
-		18D4BBDB2E0833770096EF88 /* Inter-ExtraLight-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight-BETA.otf"; sourceTree = "<group>"; };
 		18D4BBDC2E0833770096EF88 /* Inter-Light-BETA.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light-BETA.otf"; sourceTree = "<group>"; };
 		18D4BBDD2E0833770096EF88 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
 		18D4BBDE2E0833770096EF88 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
@@ -161,8 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				18D4BBD92E0833770096EF88 /* Inter-Bold.otf */,
-				18D4BBDA2E0833770096EF88 /* Inter-ExtraBold.otf */,
-				18D4BBDB2E0833770096EF88 /* Inter-ExtraLight-BETA.otf */,
 				18D4BBDC2E0833770096EF88 /* Inter-Light-BETA.otf */,
 				18D4BBDD2E0833770096EF88 /* Inter-Medium.otf */,
 				18D4BBDE2E0833770096EF88 /* Inter-Regular.otf */,
@@ -200,6 +198,7 @@
 				18D4BBE92E0833770096EF88 /* SplashVC.swift */,
 				18D4BBEA2E0833770096EF88 /* TasksVC.swift */,
 				189A17652E5063E700DA19CF /* PremiumVC.swift */,
+				189A17672E51CC1A00DA19CF /* AddNewListVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +216,7 @@
 				18657AE92E0B45440092ACEA /* DashboardGridView.swift */,
 				18D87CF32E198B2E00A1376C /* CalenderGridView.swift */,
 				18D87CF72E1997B500A1376C /* TasksStatusView.swift */,
+				182C707A2E68CECE007A9575 /* PremiumFeatureView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -378,14 +378,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D4BC1E2E0833770096EF88 /* Inter-Light-BETA.otf in Resources */,
-				18D4BC1F2E0833770096EF88 /* Inter-ExtraLight-BETA.otf in Resources */,
 				18D4BC202E0833770096EF88 /* Inter-Medium.otf in Resources */,
 				18D4BC212E0833770096EF88 /* Inter-Regular.otf in Resources */,
 				18D4BC222E0833770096EF88 /* Assets.xcassets in Resources */,
 				18D4BC232E0833770096EF88 /* Inter-SemiBold.otf in Resources */,
 				18D4BC242E0833770096EF88 /* to_do.json in Resources */,
 				18D4BC252E0833770096EF88 /* Inter-Bold.otf in Resources */,
-				18D4BC262E0833770096EF88 /* Inter-ExtraBold.otf in Resources */,
 				18D4BC272E0833770096EF88 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +442,7 @@
 				18D4BC132E0833770096EF88 /* ListRepo.swift in Sources */,
 				18D4BC142E0833770096EF88 /* ListToDoItemView.swift in Sources */,
 				18D4BC152E0833770096EF88 /* NoTasksFoundView.swift in Sources */,
+				182C707B2E68CECE007A9575 /* PremiumFeatureView.swift in Sources */,
 				18D87CF82E1997B500A1376C /* TasksStatusView.swift in Sources */,
 				18D4BC162E0833770096EF88 /* ThemeManager.swift in Sources */,
 				18D4BC172E0833770096EF88 /* ListViewModel.swift in Sources */,
@@ -455,6 +454,7 @@
 				18D4BC1C2E0833770096EF88 /* TaskListModel.swift in Sources */,
 				18D4BC282E0833770096EF88 /* ToDoList.xcdatamodeld in Sources */,
 				18D4BC1D2E0833770096EF88 /* CoreDataManager.swift in Sources */,
+				189A17682E51CC1A00DA19CF /* AddNewListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

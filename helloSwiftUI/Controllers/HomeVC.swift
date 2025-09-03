@@ -6,7 +6,8 @@ struct HomeVC: View {
 
     @State private var navigationPath: [Route] = []
     @State private var isShowingAddTask = false
-
+    @State private var isShowingAddList = false
+    
     var body: some View {
         NavigationStack(path: $navigationPath) {
             ZStack {
@@ -54,7 +55,7 @@ struct HomeVC: View {
                             .foregroundColor(.white)
                         Spacer()
                         Button {
-                            // Add new list action
+                            isShowingAddList = true
                         } label: {
                             HStack(spacing: 2) {
                                 Image("img_add_icon")
@@ -125,6 +126,9 @@ struct HomeVC: View {
                     listViewModel: listViewModel,
                     taskViewModel: taskViewModel
                 )
+            }
+            .fullScreenCover(isPresented: $isShowingAddTask) {
+                AddNewListVC()
             }
         }
     }

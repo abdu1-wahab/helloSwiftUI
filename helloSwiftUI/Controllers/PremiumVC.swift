@@ -37,104 +37,24 @@ struct PremiumVC: View {
                     Text("Unlock Premium")
                         .font(.system(size: 20))
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(hex: "C9C9CA"))
+                        .padding()
                     
                     Text("Get unlimited access to all features and boost your productivity")
+                        .multilineTextAlignment(.center)
                         .font(.system(size: 14))
                         .fontWeight(.regular)
                         .foregroundColor(Color(hex: "9CA3AF"))
-                    
-                    
-                    HStack {
-                        Image("img_infinity")
-                        VStack(alignment: .leading) {
-                            Text("Unlimited Tasks")
-                                .font(.system(size: 16))
-                                .fontWeight(.medium)
-                                .foregroundColor(.white)
-                            
-                            Text("Create and manage unlimited tasks and projects to stay organized and boost productivity.")
-                                .font(.system(size: 13))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color(hex: "9CA3AF"))
-                        }
+                        .padding(.horizontal, 50)
+                    VStack(alignment: .leading) {
+                        FeatureRow(image: "img_infinity", title: "Unlimited Tasks", subtitle: "Create and manage unlimited tasks and projects to stay organized and boost productivity.")
+                        FeatureRow(image: "img_customize_theme", title: "Custom Themes", subtitle: "Personalize your experience with a variety of premium themes tailored to your style.")
+                        FeatureRow(image: "img_no_ads", title: "No Ads",
+                                   subtitle: "Enjoy an ad-free experience with the premium version.")
                     }
-                    .padding()
-                    
-                    HStack {
-                        Image("img_customize_theme")
-                        VStack(alignment: .leading) {
-                            Text("Custom Themes")
-                                .font(.system(size: 16))
-                                .fontWeight(.medium)
-                                .foregroundColor(.white)
-                            
-                            Text("Personalize your experience with a variety of premium themes tailored to your style.")
-                                .font(.system(size: 13))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color(hex: "9CA3AF"))
-                        }
-                    }
-                    .padding()
-                    
-                    HStack {
-                        Image("img_no_ads")
-                        VStack(alignment: .leading) {
-                            Text("No Ads")
-                                .font(.system(size: 16))
-                                .fontWeight(.medium)
-                                .foregroundColor(.white)
-                            
-                            Text("Enjoy an ad-free experience with the premium version.")
-                                .font(.system(size: 13))
-                                .fontWeight(.regular)
-                                .foregroundColor(Color(hex: "9CA3AF"))
-                        }
-                    }
-                    .padding()
-                    
                     VStack(spacing: 16) {
                         ForEach(options) { option in
-                            Button(action: {
-                                selectedOption = option.title
-                            }) {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    HStack {
-                                        Text(option.title)
-                                            .font(.headline)
-                                            .foregroundColor(.white)
-                                        
-                                        Spacer()
-                                        
-                                        if let tag = option.tag {
-                                            Text(tag)
-                                                .font(.caption)
-                                                .padding(.horizontal, 8)
-                                                .padding(.vertical, 4)
-                                                .background(Color.blue)
-                                                .foregroundColor(.white)
-                                                .cornerRadius(12)
-                                        }
-                                    }
-                                    
-                                    Text(option.subtitle)
-                                        .font(.subheadline)
-                                        .foregroundColor(.gray)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                    
-                                    Text(option.price)
-                                        .font(.title2)
-                                        .bold()
-                                        .foregroundColor(.white)
-                                }
-                                .padding()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .fill(selectedOption == option.title ? Color.blue.opacity(0.6) : Color.black.opacity(0.8))
-                                )
-                            }
-                            .buttonStyle(PlainButtonStyle())
+                            PricingOptionButton(option: option, selectedOption: $selectedOption)
                         }
                     }
                     .padding()
@@ -165,6 +85,7 @@ struct PremiumVC: View {
                             .font(.system(size: 16))
                             .fontWeight(.medium)
                             .foregroundColor(Color(hex: "D1D5DB"))
+                            .padding()
                     }
                     
                     Text("Cancel anytime.")
@@ -185,6 +106,7 @@ struct PremiumVC: View {
                             .fontWeight(.regular)
                             .foregroundColor(Color(hex: "6B7280"))
                     }
+                    .padding()
                 }
             }
         }
