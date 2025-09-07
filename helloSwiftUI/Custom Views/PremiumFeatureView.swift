@@ -102,6 +102,21 @@ struct PricingOptionButton: View {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(selectedOption == option.title ? Color(hex: "#3B82F6") : Color(hex: "#374151"), lineWidth: 2)
             )
+            .overlay(
+                Group {
+                    if option.popularOnGoingOffer {
+                        Text("Most Popular")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 6)
+                            .background((Color(hex: "#3B82F6")))
+                            .clipShape(Capsule())
+                            .offset(y: -20)
+                    }
+                },
+                alignment: .top
+            )
         }
         .buttonStyle(PlainButtonStyle())
     }
