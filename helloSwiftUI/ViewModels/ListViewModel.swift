@@ -18,9 +18,9 @@ final class TaskListViewModel: ObservableObject {
         }
     }
 
-    func createList(name: String, iconName: String) async {
+    func createList(name: String, iconName: String, iconColor: String) async {
         do {
-            try await repository.create(name: name, iconName: iconName)
+            try await repository.create(name: name, iconName: iconName, iconColor: iconColor)
             await loadLists()
         } catch {
             print("Error creating list: \(error)")

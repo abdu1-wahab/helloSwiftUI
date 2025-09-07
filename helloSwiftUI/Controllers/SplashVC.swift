@@ -60,10 +60,10 @@ struct SplashVC: View {
         }
 
         let defaultNames: [TaskListEntry] = [
-            TaskListEntry(name: "ToDo", icon: "tick_icon"),
-            TaskListEntry(name: "Shopping", icon: "shopping_icon"),
-            TaskListEntry(name: "Work", icon: "work_icon"),
-            TaskListEntry(name: "Study", icon: "study_icon")
+            TaskListEntry(name: "ToDo", icon: "tick_icon", iconColor: "7D5FFF"),
+            TaskListEntry(name: "Shopping", icon: "img_shopping", iconColor: "FEA47F"),
+            TaskListEntry(name: "Work", icon: "img_work", iconColor: "25C685"),
+            TaskListEntry(name: "Study", icon: "img_study", iconColor: "FFD43B")
         ]
 
         for entry in defaultNames {
@@ -71,6 +71,7 @@ struct SplashVC: View {
             list.id = UUID()
             list.name = entry.name
             list.iconName = entry.icon
+            list.iconColor = entry.iconColor
             list.createdAt = Date()
         }
 

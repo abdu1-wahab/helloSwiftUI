@@ -6,6 +6,7 @@ class TaskList: NSManagedObject {
     @NSManaged var id: UUID
     @NSManaged var name: String
     @NSManaged var iconName: String
+    @NSManaged var iconColor: String
     @NSManaged var createdAt: Date
     @NSManaged var tasks: Set<TaskItem>?
 }
@@ -19,4 +20,5 @@ extension TaskList {
 struct TaskListEntry {
     var name: String
     var icon: String
+    var iconColor: String
 }

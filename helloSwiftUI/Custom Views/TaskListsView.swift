@@ -13,7 +13,8 @@ struct TaskListSectionView: View {
                     ListToDoItemView(
                         title: list.name,
                         taskCount: list.tasks?.count ?? 0,
-                        iconName: list.iconName, backgroundColor: Color(hex: "#1B1B1D")
+                        iconName: list.iconName, backgroundColor: Color(hex: "#1B1B1D"), iconColor:
+                            Color(hex: list.iconColor)
                     )
                 }
                 .listRowInsets(EdgeInsets())

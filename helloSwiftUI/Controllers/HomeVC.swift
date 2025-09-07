@@ -111,7 +111,7 @@ struct HomeVC: View {
                 )
             }
             .fullScreenCover(isPresented: $isShowingAddList) {
-                AddNewListVC()
+                AddNewListVC(listViewModel: listViewModel)
             }
         }
     }

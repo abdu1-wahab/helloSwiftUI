@@ -7,16 +7,17 @@ struct AddNewListVC: View {
     let colors: [Color] = [
         Color(hex: "#3B82F6"),  Color(hex: "#EF4444"),  Color(hex: "#22C55E"),  Color(hex: "#EAB308"),  Color(hex: "#A855F7"),  Color(hex: "#EC4899"), Color(hex: "#F97316"),  Color(hex: "#14B8A6"),  Color(hex: "#6366F1"),  Color(hex: "#6B7280"),  Color(hex: "#10B981"),  Color(hex: "#F43F5E")
     ]
-    
     let iconNames = [ "img_list","img_heart", "img_star", "img_home", "img_work", "img_shopping", "img_study", "img_music", "img_camera","img_gaming","img_travel", "img_gift"]
-    
-    @State private var selectedColor: Color? = Color(hex: "#3B82F6")
-    @State private var selectedIcon: String = "img_list"
     var isFormValid: Bool {
-       return true
+        !text.trimmingCharacters(in: .whitespaces).isEmpty
     }
     let colorColumns = Array(repeating: GridItem(.flexible(), spacing: 19), count: 6)
     let iconColumns = Array(repeating: GridItem(.flexible(), spacing: 6), count: 4)
+    
+    @State private var selectedColor: Color? = Color(hex: "#3B82F6")
+    @State private var selectedIcon: String = "img_list"
+    @ObservedObject var listViewModel: TaskListViewModel 
+
     
     var body: some View {
         ZStack {
@@ -157,19 +158,33 @@ struct AddNewListVC: View {
                         .padding(.horizontal, 22)
                 }
                 .disabled(!isFormValid)
+                .opacity(isFormValid ? 1.0 : 0.7)
             }
-            
         }
     }
     
-    
-    private func saveTask() {
-        
+    private func saveTask()  {
+        guard let color = selectedColor,
+                  let hex = color.toHex() else { return }
+        Task {
+            await
+            listViewModel.createList(name: text, iconName: selectedIcon, iconColor: hex)
+        }
+        dismiss()
     }
 }
 
 #Preview {
-    return  NavigationStack {
-        AddNewListVC()
+    let mockList = TaskList(context: CoreDataManager.shared.context)
+    mockList.id = UUID()
+    mockList.name = "Sample List"
+    mockList.iconName = "star"
+    mockList.createdAt = Date()
+    
+    let mockListVM = TaskListViewModel(repository: TaskListRepository())
+    mockListVM.lists = [mockList]
+    
+    return NavigationStack {
+        AddNewListVC(listViewModel: mockListVM)
     }
 }

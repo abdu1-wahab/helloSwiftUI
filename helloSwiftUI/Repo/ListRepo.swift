@@ -2,7 +2,7 @@ import CoreData
 import Foundation
 
 protocol TaskListRepositoryProtocol {
-    func create(name: String, iconName: String) async throws
+    func create(name: String, iconName: String, iconColor: String) async throws
     func delete(_ list: TaskList) async throws
     func fetchAll() async throws -> [TaskList]
 }
@@ -14,11 +14,12 @@ final class TaskListRepository: TaskListRepositoryProtocol {
         self.context = context
     }
 
-    func create(name: String, iconName: String) async throws {
+    func create(name: String, iconName: String, iconColor: String) async throws {
         let list = TaskList(context: context)
         list.id = UUID()
         list.name = name
         list.iconName = iconName
+        list.iconColor = iconColor
         list.createdAt = Date()
         try context.save()
     }

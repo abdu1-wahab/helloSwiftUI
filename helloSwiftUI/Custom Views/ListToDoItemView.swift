@@ -5,11 +5,25 @@ struct ListToDoItemView: View {
     let taskCount: Int
     let iconName: String
     let backgroundColor: Color
+    let iconColor: Color
 
     var body: some View {
         HStack {
-            Image(iconName)
-                .padding(.leading)
+
+            ZStack {
+                Rectangle()
+                    .fill(iconColor).opacity(0.1)
+                    .frame(width: 32, height: 32)
+                    .cornerRadius(6)
+                
+                Image(iconName)
+                    .resizable()
+                    .foregroundColor(iconColor)
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+            }
+            .padding(.leading)
+            
             Text(title)
                 .font(.system(size: 14))
                 .fontWeight(.regular)
@@ -32,12 +46,12 @@ struct ListToDoItemView: View {
 }
 
 
-//#Preview {
-//    ListToDoItemView(
-//        title: list.name ?? "Untitled",
-//        taskCount: list.tasks?.count ?? 0,
-//        iconName: list.iconName ?? "tick_icon",
-//        backgroundColor: Color(hex: "#1B1B1D")
-//    )
-//
-//}
+#Preview {
+    ListToDoItemView(
+        title: "Untitled",
+        taskCount:  0,
+        iconName: "tick_icon",
+        backgroundColor: Color(hex: "#1B1B1D"), iconColor: Color(hex: "#7D5FFF")
+    )
+
+}
