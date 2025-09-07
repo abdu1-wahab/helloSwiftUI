@@ -14,23 +14,6 @@ struct HomeVC: View {
                 Color.black.ignoresSafeArea()
 
                 VStack {
-                    // Top Bar
-//                    HStack {
-//                        Spacer()
-//                        Text("To Do List")
-//                            .font(.system(size: 18))
-//                            .fontWeight(.semibold)
-//                            .foregroundColor(.white)
-//                        Spacer()
-//                        Button {
-//                            navigationPath.append(.settings)
-//                        } label: {
-//                            Image("img_settings_icon")
-//                        }
-//                    }
-//                    .padding(.horizontal, 8)
-//                    .padding(.top, 20)
-
                     // Search Bar
                     Image("search_Bar")
 
@@ -127,7 +110,7 @@ struct HomeVC: View {
                     taskViewModel: taskViewModel
                 )
             }
-            .fullScreenCover(isPresented: $isShowingAddTask) {
+            .fullScreenCover(isPresented: $isShowingAddList) {
                 AddNewListVC()
             }
         }
