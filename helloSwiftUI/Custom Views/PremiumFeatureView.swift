@@ -45,42 +45,72 @@ struct PricingOptionButton: View {
         Button(action: {
             selectedOption = option.title
         }) {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading) {
                 HStack {
-                    Text(option.title)
-                        .font(.headline)
-                        .foregroundColor(.white)
+                    (
+                        Text(option.title + "\n")
+                            .font(.system(size: 16))
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                        +
+                        Text(option.subtitle)
+                            .font(.system(size: 14))
+                            .fontWeight(.regular)
+                            .foregroundColor(.gray)
+                    )
                     
                     Spacer()
                     
-                    if let tag = option.tag {
-                        Text(tag)
-                            .font(.caption)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 4)
-                            .background(Color.blue)
+                    (
+                        Text(option.price + "\n")
+                            .font(.system(size: 24))
+                            .fontWeight(.bold)
                             .foregroundColor(.white)
-                            .cornerRadius(12)
+                        +
+                        Text(option.timeDuration)
+                            .font(.system(size: 14))
+                            .fontWeight(.regular)
+                            .foregroundColor(.gray)
+                    )
+                }
+                
+                if option.popularOnGoingOffer {
+                    HStack {
+                        (
+                            Text(option.originalPrice)
+                                .font(.system(size: 14))
+                                .fontWeight(.regular)
+                                .foregroundColor(.gray)
+                                .strikethrough(true, color: .gray)
+                            +
+                            Text(option.discountedPrice)
+                                .font(.system(size: 14))
+                                .fontWeight(.medium)
+                                .foregroundColor(Color(hex: "#4ADE80"))
+                        )
                     }
                 }
                 
-                Text(option.subtitle)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .fixedSize(horizontal: false, vertical: true)
-                
-                Text(option.price)
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(.white)
             }
-            .padding()
+            .padding(27)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(selectedOption == option.title ? Color.blue.opacity(0.6) : Color.black.opacity(0.8))
+                    .fill(selectedOption == option.title ? Color(hex: "#12192C") : Color(hex: "#212936"))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(selectedOption == option.title ? Color(hex: "#3B82F6") : Color(hex: "#374151"), lineWidth: 2)
             )
         }
         .buttonStyle(PlainButtonStyle())
     }
+}
+
+#Preview {
+    let option: PricingOption =
+            PricingOption(title: "Monthly",
+                          subtitle: "Perfect for trying out",
+                          price: "$4.99 ", timeDuration: "/month", popularOnGoingOffer: true, originalPrice: "$59.88", discountedPrice: "  Save $24")
+    PricingOptionButton(option: option , selectedOption: .constant(""))
 }

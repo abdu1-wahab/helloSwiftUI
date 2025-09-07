@@ -5,7 +5,10 @@ struct PricingOption: Identifiable {
     let title: String
     let subtitle: String
     let price: String
-    let tag: String?
+    let timeDuration: String
+    let popularOnGoingOffer: Bool
+    let originalPrice: String
+    let discountedPrice: String
 }
 
 struct PremiumVC: View {
@@ -16,18 +19,16 @@ struct PremiumVC: View {
     let options: [PricingOption] = [
             PricingOption(title: "Monthly",
                           subtitle: "Perfect for trying out",
-                          price: "$4.99 /month",
-                          tag: nil),
+                          price: "$4.99 ", timeDuration: "/month", popularOnGoingOffer: false, originalPrice: "", discountedPrice: ""),
             
             PricingOption(title: "Yearly",
-                          subtitle: "Save 50% with annual billing\n$59.88  Save $24",
-                          price: "$2.99 /month",
-                          tag: "Most Popular"),
+                          subtitle: "Save 50% with annual billing",
+                          price: "$2.99", timeDuration: "/month", popularOnGoingOffer: true, originalPrice: "$59.88", discountedPrice: "  Save $24"
+                         ),
             
             PricingOption(title: "Lifetime",
                           subtitle: "One-time purchase",
-                          price: "$49.99 forever",
-                          tag: nil)
+                          price: "$49.99", timeDuration: "forever", popularOnGoingOffer: false, originalPrice: "", discountedPrice: "")
         ]
     var body: some View {
         ZStack {
