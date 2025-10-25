@@ -13,38 +13,8 @@ struct TasksVC: View {
             Color.black.ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Top Bar
-//                HStack {
-//                    Button {
-//                        dismiss()
-//                    } label: {
-//                        Image(systemName: "arrow.backward")
-//                            .foregroundColor(Color(hex: "7C7C7C"))
-//                            .frame(width: 4, height: 4)
-//                            .padding()
-//                            .background(Color(hex: "#1B1B1D"))
-//                            .clipShape(Circle())
-//                            .shadow(radius: 1)
-//                    }
-//
-//                    Spacer()
-//
-//                    Text(taskList.name)
-//                        .font(.system(size: 18))
-//                        .fontWeight(.semibold)
-//                        .foregroundColor(.white)
-//
-//                    Spacer()
-//
-//                    // Spacer to balance layout
-//                    Color.clear.frame(width: 48, height: 48)
-//                }
-//                .padding(.horizontal, 8)
-//                .padding(.top, 20)
-
                 Spacer()
 
-                // Tasks list or empty view
                 if viewModel.tasks.isEmpty {
                     NoTasksFoundView()
                 } else {

@@ -8,76 +8,41 @@ struct HomeVC: View {
     @State private var isShowingAddTask = false
     @State private var isShowingAddList = false
     
+    @State private var isSearching = false
+    @State private var searchText = ""
+
     var body: some View {
         NavigationStack(path: $navigationPath) {
             ZStack {
                 Color.black.ignoresSafeArea()
 
                 VStack {
-                    // Search Bar
-                    Image("search_Bar")
+                    searchBar
 
-                    // Dashboard Cards
-                    NavigationView {
-                        DashboardGridView(
-                            allTasks: taskViewModel.allCount,
-                            today: taskViewModel.todayCount,
-                            completed: taskViewModel.completedCount,
-                            upcoming: taskViewModel.upcomingCount, taskViewModel: taskViewModel
-                        )
-                    }
-                    .background(Color.black.ignoresSafeArea())
-                    .padding(.horizontal)
-                    
-
-                    // List Header
-                    HStack {
-                        Text("To Do List")
-                            .font(.system(size: 18))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                        Spacer()
-                        Button {
-                            isShowingAddList = true
-                        } label: {
-                            HStack(spacing: 2) {
-                                Image("img_add_icon")
-                                Text("New List")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color(hex: "#3B82F6"))
-                            }
+                    if isSearching {
+                        // ✅ Break up the expression — compute filteredTasks first
+                        let filteredTasks = taskViewModel.tasks.filter { task in
+                            searchText.isEmpty || task.title.localizedCaseInsensitiveContains(searchText)
                         }
-                    }
-                    .padding(.top)
-                    .padding(.horizontal)
 
-                    // List View from Core Data
-                    TaskListSectionView(lists: listViewModel.lists) { selectedList in
-                        navigationPath.append(.taskDetail(selectedList))
-                    }
-                    .listStyle(.plain)
-
-                    Spacer()
-
-                    // Bottom New Task Button
-                    HStack {
-                        Button {
-                            isShowingAddTask = true
-                        } label: {
-                            HStack(spacing: 8) {
-                                Image("img_add_icon_white")
-                                Text("New Task")
-                                    .font(.system(size: 12))
+                        List(filteredTasks, id: \.id) { task in
+                            HStack {
+                                Text(task.title)
                                     .foregroundColor(.white)
+                                Spacer()
+                                if task.isCompleted {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(.green)
+                                }
                             }
-                            .padding()
-                            .background(Color.blue)
-                            .cornerRadius(20)
+                            .padding(.vertical, 4)
                         }
+                        .listStyle(.plain)
+                        .scrollContentBackground(.hidden)
+                        .background(Color.black)
+                    } else {
+                        mainContent
                     }
-                    .frame(height: 64)
-                    //.background(Color(hex: "#1B1B1D"))
                 }
             }
             .navigationDestination(for: Route.self) { route in
@@ -99,24 +64,122 @@ struct HomeVC: View {
                     }
                 }
             }
-
             .task {
                 await listViewModel.loadLists()
                 await taskViewModel.loadDashboardCounts()
             }
             .fullScreenCover(isPresented: $isShowingAddTask) {
-                AddNewTaskVC(
-                    listViewModel: listViewModel,
-                    taskViewModel: taskViewModel
-                )
+                AddNewTaskVC(listViewModel: listViewModel, taskViewModel: taskViewModel)
             }
             .fullScreenCover(isPresented: $isShowingAddList) {
                 AddNewListVC(listViewModel: listViewModel)
             }
         }
     }
-}
 
+    // MARK: - Search Bar
+    private var searchBar: some View {
+        HStack {
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .foregroundColor(.gray)
+                
+                TextField("Search tasks", text: $searchText, onEditingChanged: { editing in
+                    withAnimation {
+                        isSearching = editing
+                    }
+                })
+                .textFieldStyle(PlainTextFieldStyle())
+                .foregroundColor(.white)
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
+            }
+            .padding(8)
+            .background(Color(hex: "#1E1E1E"))
+            .cornerRadius(10)
+            .animation(.easeInOut, value: isSearching)
+
+            if isSearching {
+                Button("Cancel") {
+                    withAnimation {
+                        isSearching = false
+                        searchText = ""
+                        // Dismiss keyboard
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    }
+                }
+                .foregroundColor(.blue)
+                .transition(.move(edge: .trailing).combined(with: .opacity))
+            }
+        }
+        .padding(.horizontal)
+        .padding(.top)
+        .animation(.easeInOut, value: isSearching)
+    }
+
+
+    // MARK: - Main Content
+    private var mainContent: some View {
+        VStack {
+            NavigationView {
+                DashboardGridView(
+                    allTasks: taskViewModel.allCount,
+                    today: taskViewModel.todayCount,
+                    completed: taskViewModel.completedCount,
+                    upcoming: taskViewModel.upcomingCount,
+                    taskViewModel: taskViewModel
+                )
+            }
+            .background(Color.black.ignoresSafeArea())
+            .padding(.horizontal)
+
+            HStack {
+                Text("To Do List")
+                    .font(.system(size: 18))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                Spacer()
+                Button {
+                    isShowingAddList = true
+                } label: {
+                    HStack(spacing: 2) {
+                        Image("img_add_icon")
+                        Text("New List")
+                            .font(.system(size: 14))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(hex: "#3B82F6"))
+                    }
+                }
+            }
+            .padding(.top)
+            .padding(.horizontal)
+
+            TaskListSectionView(lists: listViewModel.lists) { selectedList in
+                navigationPath.append(.taskDetail(selectedList))
+            }
+            .listStyle(.plain)
+
+            Spacer()
+
+            HStack {
+                Button {
+                    isShowingAddTask = true
+                } label: {
+                    HStack(spacing: 8) {
+                        Image("img_add_icon_white")
+                        Text("New Task")
+                            .font(.system(size: 12))
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(20)
+                }
+            }
+            .frame(height: 64)
+        }
+    }
+}
 
 #Preview {
     HomeVC()
