@@ -1,79 +1,61 @@
 import SwiftUI
-import Flow
 
 struct OnboardingVC: View {
     
-    @State private var items: [Onboarding_Data] = [
-        .init(title: "Exercise", isSelected: false),
-        .init(title: "Read Books", isSelected: false),
-        .init(title: "Meditate", isSelected: false),
-        .init(title: "Plan Meals", isSelected: false),
-        .init(title: "Water Plants", isSelected: false),
-        .init(title: "Journal", isSelected: false),
-        .init(title: "Stretch for 15 minutes", isSelected: false),
-        .init(title: "Review goals before bedtime", isSelected: false),
-    ]
     
     @State private var showMainApp = false
     
     var isButtonDisabled: Bool {
-        !items.contains(where: { $0.isSelected })
+        return true
     }
     
     var body: some View {
         ZStack {
-            Image("onboarding_bg")
-                .resizable()
-                .ignoresSafeArea()
-
+            Color.black.ignoresSafeArea()
+            
             VStack {
                 Spacer()
-
-                Text("Pick some new habits to get started")
-                    .font(.system(size: 36))
+                Image("ob_photo")
+                    .aspectRatio(contentMode: .fit)
+                
+                Text("Task Management & To-Do List")
+                    .font(.system(size: 24))
                     .fontWeight(.semibold)
-                    .foregroundColor(.black)
-                    .padding()
-                    .padding(.leading, 2)
-
-                Spacer()
-                Spacer()
-                Spacer()
-                Text("Recommended")
-                    .font(.system(size: 12))
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 30)
-                    .padding(.top, 20)
-                    
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 60)
+                    .padding(.horizontal, 80)
                 
-                HFlow(itemSpacing: 12, rowSpacing: 13) {
-                    ForEach($items) { $item in
-                        ResizableGridCell(item: $item)
-                            .onTapGesture {
-                                item.isSelected.toggle()
-                            }
-                    }
-                }
-                .padding(.bottom, 20)
+                Text("This productive tool is designed to help you\nbetter manage your task project-wise conveniently!")
+                    .font(.system(size: 16))
+                    .foregroundColor(Color.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 32)
+                    .padding(.horizontal, 32)
+                    .padding(.bottom, 47)
                 
                 
-
+                
                 Button(action: {
                     showMainApp = true
                 }) {
-                    Text("Continue")
-                        .frame(maxWidth: .infinity)
-                        .fontWeight(.semibold)
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color(hex: "393433"))
-                        .cornerRadius(12)
-                        .padding(.horizontal, 28)
+                    HStack(spacing: 12) {
+                        Spacer()
+                        Text("Let’s Start")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(.white)
+                            .padding(.leading, 40)
+                        Spacer()
+                        Image("ob_arrow")
+                            .padding(.trailing, 14)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 18)
+                    .background(Color(hex: "3B82F6"))
+                    .cornerRadius(16)
                 }
-                .disabled(isButtonDisabled)
-                .opacity(isButtonDisabled ? 0.7 : 1.0)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 47)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .fullScreenCover(isPresented: $showMainApp) {
