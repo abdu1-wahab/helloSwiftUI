@@ -18,28 +18,25 @@ struct HomeVC: View {
 
                 VStack {
                     searchBar
-
                     if isSearching {
-                        // ✅ Break up the expression — compute filteredTasks first
                         let filteredTasks = taskViewModel.tasks.filter { task in
                             searchText.isEmpty || task.title.localizedCaseInsensitiveContains(searchText)
                         }
 
-                        List(filteredTasks, id: \.id) { task in
-                            HStack {
-                                Text(task.title)
-                                    .foregroundColor(.white)
-                                Spacer()
-                                if task.isCompleted {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(.green)
+                        ScrollView {
+                            LazyVStack(spacing: 12) {
+                                ForEach(filteredTasks, id: \.id) { task in
+                                    TaskDetailCell(task: task) {
+                                        Task {
+                                            await taskViewModel.toggleTask(task)
+                                        }
+                                    }
                                 }
                             }
-                            .padding(.vertical, 4)
+                            .padding(.horizontal)
+                            .padding(.top, 8)
                         }
-                        .listStyle(.plain)
-                        .scrollContentBackground(.hidden)
-                        .background(Color.black)
+                        .background(Color.black.ignoresSafeArea())
                     } else {
                         mainContent
                     }
