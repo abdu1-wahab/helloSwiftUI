@@ -66,7 +66,9 @@ struct HomeVC: View {
                 await taskViewModel.loadDashboardCounts()
             }
             .fullScreenCover(isPresented: $isShowingAddTask) {
-                AddNewTaskVC(listViewModel: listViewModel, taskViewModel: taskViewModel)
+                NavigationStack {
+                    AddNewTaskVC(listViewModel: listViewModel, taskViewModel: taskViewModel)
+                }
             }
             .fullScreenCover(isPresented: $isShowingAddList) {
                 AddNewListVC(listViewModel: listViewModel)
