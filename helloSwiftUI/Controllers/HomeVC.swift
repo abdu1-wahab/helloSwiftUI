@@ -47,7 +47,9 @@ struct HomeVC: View {
                 case .settings:
                     SettingsVC()
                 case .taskDetail(let list):
-                    TasksVC(taskList: list)
+                    TasksVC(taskList: list, filter: nil)
+                case .dashboardFilter(let filter):
+                    TasksVC(taskList: nil, filter: filter)
                 }
             }
             .navigationTitle("To Do List")
@@ -120,20 +122,19 @@ struct HomeVC: View {
     // MARK: - Main Content
     private var mainContent: some View {
         VStack {
-            NavigationView {
-                DashboardGridView(
-                    allTasks: taskViewModel.allCount,
-                    today: taskViewModel.todayCount,
-                    completed: taskViewModel.completedCount,
-                    upcoming: taskViewModel.upcomingCount,
-                    taskViewModel: taskViewModel
-                )
+            DashboardGridView(
+                allTasks: taskViewModel.allCount,
+                today: taskViewModel.todayCount,
+                completed: taskViewModel.completedCount,
+                upcoming: taskViewModel.upcomingCount
+            ) { selectedFilter in
+                navigationPath.append(.dashboardFilter(selectedFilter))
             }
-            .background(Color.black.ignoresSafeArea())
             .padding(.horizontal)
 
+            // My Lists Section
             HStack {
-                Text("To Do List")
+                Text("My Lists")
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -156,10 +157,10 @@ struct HomeVC: View {
             TaskListSectionView(lists: listViewModel.lists) { selectedList in
                 navigationPath.append(.taskDetail(selectedList))
             }
-            .listStyle(.plain)
 
             Spacer()
 
+            // Add Task Button
             HStack {
                 Button {
                     isShowingAddTask = true
@@ -178,6 +179,7 @@ struct HomeVC: View {
             .frame(height: 64)
         }
     }
+
 }
 
 #Preview {

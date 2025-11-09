@@ -12,6 +12,10 @@ protocol TaskRepositoryProtocol {
     func countTasksDueToday() throws -> Int
     func fetchTaskStatusByDate(in month: Date) throws -> [TaskDaySummary]
     func fetchTasks(for date: Date) async throws -> [TaskItem]
+    func fetchAll() async throws -> [TaskItem]
+    func fetchTasksDueToday() async throws -> [TaskItem]
+    func fetchCompletedTasks() async throws -> [TaskItem]
+    func fetchUpcomingTasks() async throws -> [TaskItem]
     func countUpcomingTasks() throws -> Int
 }
 
@@ -102,4 +106,44 @@ final class TaskRepository: TaskRepositoryProtocol {
         return try context.fetch(request)
     }
 
+}
+// MARK: - Filtered Fetch Methods
+
+extension TaskRepository {
+
+    func fetchAll() async throws -> [TaskItem] {
+        let request: NSFetchRequest<TaskItem> = TaskItem.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \TaskItem.dueDate, ascending: true)]
+        return try context.fetch(request)
+    }
+
+    func fetchTasksDueToday() async throws -> [TaskItem] {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: Date())
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+
+        let request: NSFetchRequest<TaskItem> = TaskItem.fetchRequest()
+        request.predicate = NSPredicate(
+            format: "dueDate >= %@ AND dueDate < %@",
+            startOfDay as NSDate,
+            endOfDay as NSDate
+        )
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \TaskItem.dueDate, ascending: true)]
+        return try context.fetch(request)
+    }
+
+    func fetchCompletedTasks() async throws -> [TaskItem] {
+        let request: NSFetchRequest<TaskItem> = TaskItem.fetchRequest()
+        request.predicate = NSPredicate(format: "isCompleted == YES")
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \TaskItem.dueDate, ascending: true)]
+        return try context.fetch(request)
+    }
+
+    func fetchUpcomingTasks() async throws -> [TaskItem] {
+        let now = Calendar.current.startOfDay(for: Date())
+        let request: NSFetchRequest<TaskItem> = TaskItem.fetchRequest()
+        request.predicate = NSPredicate(format: "dueDate > %@ AND isCompleted == NO", now as NSDate)
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \TaskItem.dueDate, ascending: true)]
+        return try context.fetch(request)
+    }
 }

@@ -2,7 +2,8 @@ import SwiftUI
 
 struct TasksVC: View {
     
-    let taskList: TaskList
+    let taskList: TaskList?
+    let filter: TaskFilterType?
 
     @StateObject private var viewModel = TaskViewModel(repository: TaskRepository())
     @State private var searchText = ""
@@ -84,7 +85,24 @@ struct TasksVC: View {
         }
         .navigationBarBackButtonHidden(true)
         .task {
-            await viewModel.loadTasks(for: taskList)
+            await loadTasks()
+        }
+    }
+    
+    private func loadTasks() async {
+        if let filter = filter {
+            switch filter {
+            case .all:
+                await viewModel.loadAllTasks()
+            case .today:
+                await viewModel.loadTodayTasks()
+            case .completed:
+                await viewModel.loadCompletedTasks()
+            case .upcoming:
+                await viewModel.loadUpcomingTasks()
+            }
+        } else if let list = taskList {
+            await viewModel.loadTasks(for: list)
         }
     }
     
@@ -117,15 +135,15 @@ extension UINavigationController {
 }
 
 
-#Preview {
-    let context = CoreDataManager.shared.context
-    let mockList = TaskList(context: context)
-    mockList.name = "Mock List"
-    mockList.id = UUID()
-    mockList.createdAt = Date()
-    mockList.iconName = "checkmark"
-
-    return  NavigationStack {
-        TasksVC(taskList: mockList)
-    }
-}
+//#Preview {
+//    let context = CoreDataManager.shared.context
+//    let mockList = TaskList(context: context)
+//    mockList.name = "Mock List"
+//    mockList.id = UUID()
+//    mockList.createdAt = Date()
+//    mockList.iconName = "checkmark"
+//
+//    return  NavigationStack {
+//        TasksVC(taskList: mockList)
+//    }
+//}

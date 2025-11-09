@@ -125,5 +125,39 @@ final class TaskViewModel: ObservableObject {
             print("❌ Error loading tasks for date: \(error)")
         }
     }
+    
+    // MARK: - Dashboard Filters
+    func loadAllTasks() async {
+        do {
+            tasks = try await repository.fetchAll()
+        } catch {
+            print("❌ Error fetching all tasks: \(error)")
+        }
+    }
+
+    func loadTodayTasks() async {
+        do {
+            tasks = try await repository.fetchTasksDueToday()
+        } catch {
+            print("❌ Error fetching today's tasks: \(error)")
+        }
+    }
+
+    func loadCompletedTasks() async {
+        do {
+            tasks = try await repository.fetchCompletedTasks()
+        } catch {
+            print("❌ Error fetching completed tasks: \(error)")
+        }
+    }
+
+    func loadUpcomingTasks() async {
+        do {
+            tasks = try await repository.fetchUpcomingTasks()
+        } catch {
+            print("❌ Error fetching upcoming tasks: \(error)")
+        }
+    }
+
 
 }

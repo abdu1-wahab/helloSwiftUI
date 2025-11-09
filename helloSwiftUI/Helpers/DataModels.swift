@@ -51,6 +51,14 @@ class SettingsViewModel: ObservableObject {
 enum Route: Hashable {
     case settings
     case taskDetail(TaskList)
+    case dashboardFilter(TaskFilterType)
+}
+
+enum TaskFilterType {
+    case all
+    case today
+    case completed
+    case upcoming
 }
 
 enum AppTheme: String, CaseIterable {
