@@ -98,9 +98,11 @@ struct CalenderVC: View {
                         endDate: task.dueTime ?? Date(),
                         isCompleted: task.isCompleted
                     )
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
                 }
-                .listStyle(PlainListStyle())
-                .listRowSeparator(.hidden)
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
                 .background(Color.clear)
                 
                 Spacer()
@@ -128,6 +130,7 @@ struct CalenderVC: View {
         .onAppear {
             Task {
                 await taskViewModel.loadTaskSummaries(for: currentDate)
+                await taskViewModel.loadTasks(for: selectedDate)
             }
         }
         .onChange(of: currentMonthOffset) {

@@ -71,7 +71,7 @@ struct TasksVC: View {
                 }
             }
         }
-        .navigationTitle("Add Task")
+        .navigationTitle(taskList?.name ?? "Add Task")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
