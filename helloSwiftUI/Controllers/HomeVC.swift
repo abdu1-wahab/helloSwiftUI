@@ -3,7 +3,8 @@ import SwiftUI
 struct HomeVC: View {
     @StateObject private var listViewModel = TaskListViewModel(repository: TaskListRepository())
     @StateObject private var taskViewModel = TaskViewModel(repository: TaskRepository())
-
+    @EnvironmentObject var theme: ThemeManager
+    
     @State private var navigationPath: [Route] = []
     @State private var isShowingAddTask = false
     @State private var isShowingAddList = false
@@ -14,7 +15,7 @@ struct HomeVC: View {
     var body: some View {
         NavigationStack(path: $navigationPath) {
             ZStack {
-                Color.black.ignoresSafeArea()
+                theme.backgroundPrimary.ignoresSafeArea()
 
                 VStack {
                     searchBar
@@ -94,7 +95,7 @@ struct HomeVC: View {
                 .disableAutocorrection(true)
             }
             .padding(8)
-            .background(Color(hex: "#1E1E1E"))
+            .background(theme.backgroundSecondary)
             .cornerRadius(10)
             .animation(.easeInOut, value: isSearching)
 
@@ -133,7 +134,7 @@ struct HomeVC: View {
                 Text("My Lists")
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
-                    .foregroundColor(.white)
+                    .foregroundColor(theme.textPrimary)
                 Spacer()
                 Button {
                     isShowingAddList = true

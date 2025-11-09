@@ -15,7 +15,7 @@ struct SettingsVC: View {
                 // Appearance Setting
                 VStack {
                     HStack {
-                        Image("image_dark_appearence")
+                        Image("img_dark_appearence")
                         Text("Appearance")
                             .font(.system(size: 14))
                             .fontWeight(.regular)

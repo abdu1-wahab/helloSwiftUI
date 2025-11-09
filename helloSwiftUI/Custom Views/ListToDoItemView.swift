@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ListToDoItemView: View {
+    @EnvironmentObject var theme: ThemeManager
+    
     let title: String
     let taskCount: Int
     let iconName: String
@@ -27,7 +29,7 @@ struct ListToDoItemView: View {
             Text(title)
                 .font(.system(size: 14))
                 .fontWeight(.regular)
-                .foregroundColor(.white)
+                .foregroundColor(theme.textPrimary)
                 .padding(.leading, 4)
 
             Spacer()

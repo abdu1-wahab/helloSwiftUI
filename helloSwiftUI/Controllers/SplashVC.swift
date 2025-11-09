@@ -2,20 +2,23 @@ import SwiftUI
 import Lottie
 
 struct SplashVC: View {
+    @EnvironmentObject var theme: ThemeManager
+    
     @State private var isFirstLaunch = false
     @State private var showNextScreen = false
 
     var body: some View {
         ZStack {
-            Color.white
-                .ignoresSafeArea()
+            theme.backgroundPrimary.ignoresSafeArea()
 
             if showNextScreen {
                 if isFirstLaunch {
                     OnboardingVC()
+                        .environmentObject(theme)
                         .transition(.opacity)
                 } else {
                     HomeVC()
+                        .environmentObject(theme)
                         .transition(.opacity)
                 }
             } else {

@@ -1,5 +1,7 @@
 import SwiftUI
 struct DashboardGridView: View {
+    @EnvironmentObject var theme: ThemeManager
+    
     let allTasks: Int
     let today: Int
     let completed: Int
@@ -15,7 +17,7 @@ struct DashboardGridView: View {
                     title: "All Tasks",
                     imageName: "img_allTasks",
                     count: allTasks,
-                    backgroundColor: Color(hex: "#1B1B1D")
+                    backgroundColor: theme.backgroundSecondary
                 )
             }
 
@@ -24,7 +26,7 @@ struct DashboardGridView: View {
                     title: "Today",
                     imageName: "img_today_tasks",
                     count: today,
-                    backgroundColor: Color(hex: "#1B1B1D")
+                    backgroundColor: theme.backgroundSecondary
                 )
             }
 
@@ -33,7 +35,7 @@ struct DashboardGridView: View {
                     title: "Completed",
                     imageName: "img_completed_tasks",
                     count: completed,
-                    backgroundColor: Color(hex: "#1B1B1D")
+                    backgroundColor: theme.backgroundSecondary
                 )
             }
 
@@ -43,7 +45,7 @@ struct DashboardGridView: View {
                     title: "Upcoming",
                     imageName: "img_calender",
                     count: upcoming,
-                    backgroundColor: Color(hex: "#1B1B1D")
+                    backgroundColor: theme.backgroundSecondary
                 )
             }
         }

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct TaskListSectionView: View {
+    @EnvironmentObject var theme: ThemeManager
+    
     let lists: [TaskList]
     let onSelect: (TaskList) -> Void
 
@@ -13,7 +15,7 @@ struct TaskListSectionView: View {
                     ListToDoItemView(
                         title: list.name,
                         taskCount: list.tasks?.count ?? 0,
-                        iconName: list.iconName, backgroundColor: Color(hex: "#1B1B1D"), iconColor:
+                        iconName: list.iconName, backgroundColor: theme.backgroundSecondary, iconColor:
                             Color(hex: list.iconColor)
                     )
                 }
