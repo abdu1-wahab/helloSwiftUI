@@ -4,50 +4,52 @@ struct DashboardGridView: View {
     let today: Int
     let completed: Int
     let upcoming: Int
-    let onSelectFilter: (TaskFilterType) -> Void
+    let taskViewModel: TaskViewModel
 
     var body: some View {
         LazyHGrid(rows: [GridItem(.fixed(120)), GridItem(.fixed(120))], spacing: 8) {
-
-            GridButton(title: "All Tasks", image: "img_allTasks", count: allTasks, color: "#1B1B1D") {
-                onSelectFilter(.all)
+            
+            // All Tasks
+            NavigationLink(destination: TasksVC(taskList: nil, filter: .all, viewModel: taskViewModel)) {
+                GridToDoCardItemView(
+                    title: "All Tasks",
+                    imageName: "img_allTasks",
+                    count: allTasks,
+                    backgroundColor: Color(hex: "#1B1B1D")
+                )
             }
 
-            GridButton(title: "Today", image: "img_today_tasks", count: today, color: "#1B1B1D") {
-                onSelectFilter(.today)
+            NavigationLink(destination: TasksVC(taskList: nil, filter: .today, viewModel: taskViewModel)) {
+                GridToDoCardItemView(
+                    title: "Today",
+                    imageName: "img_today_tasks",
+                    count: today,
+                    backgroundColor: Color(hex: "#1B1B1D")
+                )
             }
 
-            GridButton(title: "Completed", image: "img_completed_tasks", count: completed, color: "#1B1B1D") {
-                onSelectFilter(.completed)
+            NavigationLink(destination: TasksVC(taskList: nil, filter: .completed, viewModel: taskViewModel)) {
+                GridToDoCardItemView(
+                    title: "Completed",
+                    imageName: "img_completed_tasks",
+                    count: completed,
+                    backgroundColor: Color(hex: "#1B1B1D")
+                )
             }
 
-            GridButton(title: "Upcoming", image: "img_calender", count: upcoming, color: "#1B1B1D") {
-                onSelectFilter(.upcoming)
+            // Upcoming — stays as calendar
+            NavigationLink(destination: CalenderVC(taskViewModel: taskViewModel)) {
+                GridToDoCardItemView(
+                    title: "Upcoming",
+                    imageName: "img_calender",
+                    count: upcoming,
+                    backgroundColor: Color(hex: "#1B1B1D")
+                )
             }
         }
     }
 }
 
-private struct GridButton: View {
-    let title: String
-    let image: String
-    let count: Int
-    let color: String
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: action) {
-            GridToDoCardItemView(
-                title: title,
-                imageName: image,
-                count: count,
-                backgroundColor: Color(hex: color)
-            )
-        }
-    }
+#Preview {
+    DashboardGridView(allTasks: 5, today: 3, completed: 2, upcoming: 2, taskViewModel: TaskViewModel(repository: TaskRepository()))
 }
-
-
-//#Preview {
-//    DashboardGridView(allTasks: 5, today: 3, completed: 2, upcoming: 2, taskViewModel: TaskViewModel(repository: TaskRepository()))
-//}

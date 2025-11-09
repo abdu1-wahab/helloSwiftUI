@@ -51,7 +51,6 @@ class SettingsViewModel: ObservableObject {
 enum Route: Hashable {
     case settings
     case taskDetail(TaskList)
-    case dashboardFilter(TaskFilterType)
 }
 
 enum TaskFilterType {

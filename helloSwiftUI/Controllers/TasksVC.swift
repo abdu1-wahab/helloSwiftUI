@@ -5,9 +5,15 @@ struct TasksVC: View {
     let taskList: TaskList?
     let filter: TaskFilterType?
 
-    @StateObject private var viewModel = TaskViewModel(repository: TaskRepository())
+    @StateObject var viewModel: TaskViewModel
     @State private var searchText = ""
     @Environment(\.dismiss) var dismiss
+    
+    init(taskList: TaskList? = nil, filter: TaskFilterType? = nil, viewModel: TaskViewModel) {
+            self.taskList = taskList
+            self.filter = filter
+            self._viewModel = StateObject(wrappedValue: viewModel)  // <-- important
+    }
 
     var body: some View {
         ZStack {

@@ -47,9 +47,7 @@ struct HomeVC: View {
                 case .settings:
                     SettingsVC()
                 case .taskDetail(let list):
-                    TasksVC(taskList: list, filter: nil)
-                case .dashboardFilter(let filter):
-                    TasksVC(taskList: nil, filter: filter)
+                    TasksVC(taskList: list, filter: nil, viewModel: taskViewModel)
                 }
             }
             .navigationTitle("To Do List")
@@ -126,10 +124,8 @@ struct HomeVC: View {
                 allTasks: taskViewModel.allCount,
                 today: taskViewModel.todayCount,
                 completed: taskViewModel.completedCount,
-                upcoming: taskViewModel.upcomingCount
-            ) { selectedFilter in
-                navigationPath.append(.dashboardFilter(selectedFilter))
-            }
+                upcoming: taskViewModel.upcomingCount, taskViewModel: taskViewModel
+            )
             .padding(.horizontal)
 
             // My Lists Section
