@@ -32,6 +32,13 @@ final class ThemeManager: ObservableObject {
         }
     }
     
+    var backgroundTertiary: Color {
+        switch currentTheme {
+        case .dark: return Color(hex: "343434")
+        case .light: return Color(hex: "E5E7EB")
+        }
+    }
+    
     var textPrimary: Color {
         switch currentTheme {
         case .dark: return Color.white
@@ -42,6 +49,13 @@ final class ThemeManager: ObservableObject {
     var textSecondary: Color {
         switch currentTheme {
         case .dark: return Color(hex: "7E7E7E")
+        case .light: return Color(hex: "7E7E7E")
+        }
+    }
+    
+    var textTertiary: Color {
+        switch currentTheme {
+        case .dark: return Color(hex: "D9D9D9")
         case .light: return Color(hex: "7E7E7E")
         }
     }

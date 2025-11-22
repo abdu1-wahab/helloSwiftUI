@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct TaskDetailCell: View {
+    @EnvironmentObject var theme: ThemeManager
     
     let task: TaskItem
     let changeStatus: () -> Void
@@ -17,16 +18,16 @@ struct TaskDetailCell: View {
                 Text(task.title)
                     .font(.system(size: 16))
                     .fontWeight(.semibold)
-                    .foregroundColor(.white)
+                    .foregroundColor(theme.textPrimary)
                 
                 Spacer()
                 if let time = task.dueTime {
                     Text(formattedTime(time))
                         .font(.system(size: 12))
                         .fontWeight(.regular)
-                        .foregroundColor(Color(hex: "7C7C7C"))
+                        .foregroundColor(theme.textTertiary)
                         .padding(4)
-                        .background(Color(hex: "343434"))
+                        .background(theme.backgroundTertiary)
                         .cornerRadius(6)
                 }
             }
@@ -36,7 +37,7 @@ struct TaskDetailCell: View {
                 if let desc = task.taskDescription, !desc.isEmpty {
                     Text(desc)
                         .font(.system(size: 14))
-                        .foregroundColor(Color(hex: "D9D9D9"))
+                        .foregroundColor(theme.textTertiary)
                 }
                 
             }
@@ -54,12 +55,12 @@ struct TaskDetailCell: View {
                 Spacer()
             }
             .font(.system(size: 12))
-            .foregroundColor(Color(hex: "7C7C7C"))
+            .foregroundColor(theme.textTertiary)
             .padding(.leading, 40)
             .padding(.bottom,30)
             
         }
-        .background(Color(hex: "#1B1B1D"))
+        .background(theme.backgroundSecondary)
         .cornerRadius(12)
     }
     

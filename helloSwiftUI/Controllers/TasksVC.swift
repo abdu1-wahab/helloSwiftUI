@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TasksVC: View {
-    
+    @EnvironmentObject var theme: ThemeManager
     let taskList: TaskList?
     let filter: TaskFilterType?
 
@@ -17,7 +17,7 @@ struct TasksVC: View {
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            theme.backgroundPrimary.ignoresSafeArea()
 
             VStack(spacing: 0) {
                 Spacer()
@@ -45,7 +45,7 @@ struct TasksVC: View {
                     }
                     .listStyle(.plain)
                     .searchable(text: $searchText)
-                    .background(Color.black)
+                    .background(Color.clear)
                 }
 
                 Spacer()
