@@ -8,14 +8,14 @@ struct SettingsVC: View {
     @State private var showPremium = false
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            themeManager.backgroundPrimary.ignoresSafeArea()
             
             VStack(spacing: 0) {
                 
                 // Appearance Setting
                 VStack {
                     HStack {
-                        Image("img_dark_appearence")
+                        themeManager.currentTheme == .light ? Image("img_light_appearence") : Image("img_dark_appearence")
                         Text("Appearance")
                             .font(.system(size: 14))
                             .fontWeight(.regular)
@@ -66,7 +66,7 @@ struct SettingsVC: View {
                 }
                 .padding(.vertical, 20)
                 .padding(.horizontal, 20)
-                .background(Color(hex: "1B1B1D"))
+                .background(themeManager.backgroundSecondary)
                 .cornerRadius(12)
                 
                 Button(action: {
@@ -88,7 +88,7 @@ struct SettingsVC: View {
                     }
                 }
                 .listStyle(.plain)
-                .background(Color.black.ignoresSafeArea())
+                .background(Color.clear)
                 .padding(.top, 20)
                 .scrollIndicators(.hidden)
             }

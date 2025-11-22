@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct SettingsRowView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @Binding var item: SettingsItem
     var body: some View {
         HStack {
@@ -10,7 +11,7 @@ struct SettingsRowView: View {
                 Text(item.title)
                     .font(.system(size: 14))
                     .fontWeight(.regular)
-                    .foregroundColor(Color(hex: "F4F4F5"))
+                    .foregroundColor(themeManager.textPrimary)
                     .padding(.vertical, 2)
 
                 Text(item.subtitle)
@@ -32,7 +33,7 @@ struct SettingsRowView: View {
             }
         }
         .padding(15)
-        .background(Color(hex: "1B1B1D")) // optional styling
+        .background(themeManager.backgroundSecondary)
         .cornerRadius(12)
     }
 }
