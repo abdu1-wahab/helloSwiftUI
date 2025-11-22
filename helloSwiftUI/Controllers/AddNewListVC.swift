@@ -3,6 +3,8 @@ import SwiftUI
 struct AddNewListVC: View {
     
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var theme: ThemeManager
+    
     @State var text = ""
     let colors: [Color] = [
         Color(hex: "#3B82F6"),  Color(hex: "#EF4444"),  Color(hex: "#22C55E"),  Color(hex: "#EAB308"),  Color(hex: "#A855F7"),  Color(hex: "#EC4899"), Color(hex: "#F97316"),  Color(hex: "#14B8A6"),  Color(hex: "#6366F1"),  Color(hex: "#6B7280"),  Color(hex: "#10B981"),  Color(hex: "#F43F5E")
@@ -21,7 +23,7 @@ struct AddNewListVC: View {
     
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            theme.backgroundPrimary.ignoresSafeArea()
             
             VStack(alignment: .leading) {
                 
@@ -33,7 +35,7 @@ struct AddNewListVC: View {
                             .foregroundColor(Color(hex: "7C7C7C"))
                             .frame(width: 4, height: 4)
                             .padding()
-                            .background(Color(hex: "#1B1B1D"))
+                            .background(theme.backgroundTertiary)
                             .clipShape(Circle())
                             .shadow(radius: 1)
                     }
@@ -43,7 +45,7 @@ struct AddNewListVC: View {
                     Text("Create List")
                         .font(.system(size: 18))
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                        .foregroundColor(theme.textPrimary)
                     
                     Spacer()
                     Color.clear.frame(width: 48, height: 48)
@@ -51,19 +53,19 @@ struct AddNewListVC: View {
                 .padding(.horizontal, 15)
             
                 
-                Text("Choose Icons")
+                Text("List Title")
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
-                    .foregroundColor(Color(hex: "#FFFFFF"))
+                    .foregroundColor(theme.textPrimary)
                     .padding(.horizontal, 28)
                 
                 TextField(
                     "",
                     text: $text,
-                    prompt: Text("  Enter Task Name")
+                    prompt: Text("Enter List Title")
                         .font(.system(size: 14))
                         .fontWeight(.light)
-                        .foregroundColor(Color(hex: "#7C7C7C"))
+                        .foregroundColor(theme.backgroundTertiary)
                 )
                 .lineLimit(1)
                 .submitLabel(.done)
@@ -71,7 +73,7 @@ struct AddNewListVC: View {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
                 .frame(maxWidth: .infinity, maxHeight: 60)
-                .background(Color(hex: "#1B1B1D"))
+                .background(theme.backgroundSecondary)
                 .cornerRadius(12)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 9)
@@ -79,7 +81,7 @@ struct AddNewListVC: View {
                 Text("Choose Icons")
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
-                    .foregroundColor(.white)
+                    .foregroundColor(theme.textPrimary)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 11)
                 
@@ -88,7 +90,7 @@ struct AddNewListVC: View {
                     ForEach(iconNames, id: \.self) { name in
                         ZStack {
                             Rectangle()
-                                .fill(Color(hex: "#1B1B1D"))
+                                .fill(theme.backgroundSecondary)
                                 .frame(width: 79, height: 56)
                                 .cornerRadius(8)
                                 .overlay(
@@ -116,7 +118,7 @@ struct AddNewListVC: View {
                 Text("Choose Color")
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
-                    .foregroundColor(.white)
+                    .foregroundColor(theme.textPrimary)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 21)
                 

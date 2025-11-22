@@ -3,8 +3,9 @@ import Foundation
 import SSDateTimePicker
 
 struct AddNewTaskVC: View {
-    
+    @EnvironmentObject var theme: ThemeManager
     @Environment(\.dismiss) var dismiss
+    
     @State var text = ""
     @State var textDescription = ""
     @State private var startDate = Date()
@@ -45,7 +46,7 @@ struct AddNewTaskVC: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack {
-                Color.black.ignoresSafeArea()
+                theme.backgroundPrimary.ignoresSafeArea()
                 
                 VStack(spacing: 0) {
                     
@@ -58,7 +59,7 @@ struct AddNewTaskVC: View {
                                 .foregroundColor(Color(hex: "7C7C7C"))
                                 .frame(width: 4, height: 4)
                                 .padding()
-                                .background(Color(hex: "#1B1B1D"))
+                                .background(theme.backgroundTertiary)
                                 .clipShape(Circle())
                                 .shadow(radius: 1)
                         }
@@ -68,7 +69,7 @@ struct AddNewTaskVC: View {
                         Text("New Task")
                             .font(.system(size: 18))
                             .fontWeight(.semibold)
-                            .foregroundColor(.white)
+                            .foregroundColor(theme.textPrimary)
                         
                         Spacer()
                         Color.clear.frame(width: 48, height: 48)
@@ -83,16 +84,17 @@ struct AddNewTaskVC: View {
                             Text("Task Group")
                                 .font(.system(size: 10))
                                 .fontWeight(.regular)
-                                .foregroundColor(Color(hex: "7C7C7C"))
+                                .foregroundColor(theme.textTertiary)
                             
                             Picker("Select Group", selection: $selectedGroup) {
                                 ForEach(listViewModel.lists, id: \.self) { list in
                                     Text(list.name).tag(Optional(list))
+                                        .foregroundColor(theme.textPrimary)
                                 }
                             }
                             .pickerStyle(.menu)
                             .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(.white)
+                            .foregroundColor(theme.textPrimary)
                             .frame(height: 20)
                             .tint(.white)
                             
@@ -105,7 +107,7 @@ struct AddNewTaskVC: View {
                         
                     }
                     .frame(maxWidth: .infinity)
-                    .background(Color(hex: "#1B1B1D"))
+                    .background(theme.backgroundSecondary)
                     .cornerRadius(12)
                     
                     // task title
@@ -114,14 +116,14 @@ struct AddNewTaskVC: View {
                             Text("Task Name")
                                 .font(.system(size: 10))
                                 .fontWeight(.regular)
-                                .foregroundColor(Color(hex: "7C7C7C"))
+                                .foregroundColor(theme.textTertiary)
                             
                             TextField(
                                 "",
                                 text: $text,
                                 prompt: Text("Enter Task Name")
                                     .font(.system(size: 14))
-                                    .foregroundColor(Color(hex: "#7C7C7C"))
+                                    .foregroundColor(theme.textTertiary)
                             )
                             .lineLimit(1)
                             .submitLabel(.done)
@@ -134,7 +136,7 @@ struct AddNewTaskVC: View {
                         .padding(8)
                     }
                     .frame(maxWidth: .infinity)
-                    .background(Color(hex: "#1B1B1D"))
+                    .background(theme.backgroundSecondary)
                     .cornerRadius(12)
                     .padding([.top,.bottom], 20)
                     
@@ -143,13 +145,13 @@ struct AddNewTaskVC: View {
                         Text("Description")
                             .font(.system(size: 10))
                             .fontWeight(.regular)
-                            .foregroundColor(Color(hex: "7C7C7C"))
+                            .foregroundColor(theme.textTertiary)
                         
                         ZStack(alignment: .topLeading) {
                             if textDescription.isEmpty {
                                 Text("Enter Task Description")
                                     .font(.system(size: 14))
-                                    .foregroundColor(Color(hex: "#7C7C7C"))
+                                    .foregroundColor(theme.textTertiary)
                                     .padding(.top, 8)
                                     .padding(.leading, 4)
                             }
@@ -158,14 +160,14 @@ struct AddNewTaskVC: View {
                                 .font(.system(size: 14))
                                 .foregroundColor(.white)
                                 .scrollContentBackground(.hidden)
-                                .background(Color(hex: "#1B1B1D"))
+                                .background(Color.clear)
                                 .frame(height: 132) // ✅ Fixed height
                                 .fixedSize(horizontal: false, vertical: true)
                         }
                     }
                     .padding(8)
                     .frame(maxWidth: .infinity)
-                    .background(Color(hex: "#1B1B1D"))
+                    .background(theme.backgroundSecondary)
                     .cornerRadius(12)
                     .padding(.bottom, 20)
                     
@@ -177,11 +179,11 @@ struct AddNewTaskVC: View {
                                 Text("Start Date")
                                     .font(.system(size: 10))
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color(hex: "7C7C7C"))
+                                    .foregroundColor(theme.textTertiary)
                                 Text(formattedDate(startDate))
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color(hex: "FFFFFF"))
+                                    .foregroundColor(theme.textPrimary)
                             }
                             Spacer()
                             Image("img_drop_down")
@@ -193,7 +195,7 @@ struct AddNewTaskVC: View {
                         
                     }
                     .frame(maxWidth: .infinity)
-                    .background(Color(hex: "#1B1B1D"))
+                    .background(theme.backgroundSecondary)
                     .cornerRadius(12)
                     .padding([.bottom], 20)
                     
@@ -205,11 +207,11 @@ struct AddNewTaskVC: View {
                                 Text("Start Date")
                                     .font(.system(size: 10))
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color(hex: "7C7C7C"))
+                                    .foregroundColor(theme.textTertiary)
                                 Text(formattedDate(endDate))
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color(hex: "FFFFFF"))
+                                    .foregroundColor(theme.textPrimary)
                             }
                             Spacer()
                             Image("img_drop_down")
@@ -221,7 +223,7 @@ struct AddNewTaskVC: View {
                         
                     }
                     .frame(maxWidth: .infinity)
-                    .background(Color(hex: "#1B1B1D"))
+                    .background(theme.backgroundSecondary)
                     .cornerRadius(12)
                     .padding([.bottom], 20)
                     
@@ -233,11 +235,11 @@ struct AddNewTaskVC: View {
                                 Text("Select Time")
                                     .font(.system(size: 10))
                                     .fontWeight(.regular)
-                                    .foregroundColor(Color(hex: "7C7C7C"))
+                                    .foregroundColor(theme.textTertiary)
                                 Text(formattedTime(endTime))
                                     .font(.system(size: 14))
                                     .fontWeight(.semibold)
-                                    .foregroundColor(Color(hex: "FFFFFF"))
+                                    .foregroundColor(theme.textPrimary)
                             }
                             Spacer()
                             Image("img_drop_down")
@@ -249,7 +251,7 @@ struct AddNewTaskVC: View {
                         
                     }
                     .frame(maxWidth: .infinity)
-                    .background(Color(hex: "#1B1B1D"))
+                    .background(theme.backgroundSecondary)
                     .cornerRadius(12)
                     .padding([.bottom], 20)
                     
